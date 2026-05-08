@@ -1,0 +1,183 @@
+/* ============================================================
+   STYLE2.CSS — home.html page-specific styles only
+   Global vars/resets: global.css
+   Reusable components: ui.css
+   ============================================================ */
+
+/* ============================================================
+   HERO
+   ============================================================ */
+
+.hero-bg {
+  position: relative;
+  height: 80vh;
+  background: url("hero-bg.jpg") right center / cover no-repeat;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .hero-bg {
+    height: 75vh;
+    background-position: left center;
+  }
+}
+
+/* Teal tint */
+.hero-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--teal-primary);
+  mix-blend-mode: soft-light;
+  opacity: 1;
+  pointer-events: none;
+  filter: blur(6px) saturate(2.25);
+  transform: scale(1.03);
+}
+
+/* Depth gradient — mobile */
+.hero-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    oklch(from var(--slate-dark) l c h / 1)   0%,
+    oklch(from var(--slate-dark) l c h / 0.8) 35%,
+    oklch(from var(--slate-dark) l c h / 0.2) 70%,
+    oklch(from var(--slate-dark) l c h / 0)   100%
+  );
+  pointer-events: none;
+}
+
+@media (min-width: 768px) {
+  .hero-bg::after {
+    background: var(--slate-dark);
+    mix-blend-mode: multiply;
+    opacity: 0.5;
+  }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  padding-top: 0;
+}
+
+.hero-text {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 40px 24px 48px;
+}
+
+.hero-text > .hero-actions {
+  margin-top: 8px;
+}
+
+@media (min-width: 768px) {
+  .hero-content {
+    width: min(1440px, 90%);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+    gap: 0 24px;
+    padding-top: 0;
+  }
+
+  .hero-text {
+    grid-column: 1 / 9;
+    grid-row: 5 / 10;
+    justify-content: center;
+    gap: 24px;
+    background: oklch(from var(--slate-dark) l c h / 0.5);
+    border-left: var(--border-width) solid var(--teal-primary);
+    padding: 40px;
+    width: auto;
+  }
+}
+
+.hero-eyebrow {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--white);
+  margin: 0;
+}
+
+.hero-headline {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: clamp(32px, 8vw, 52px);
+  letter-spacing: -0.02em;
+  line-height: 1.08;
+  color: var(--gold-base);
+  margin: 0;
+
+  /* Light-tracking gradient — driven by JS --lx / --ly */
+  --lx: 0;
+  --ly: 0;
+  position: relative;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-image:
+    radial-gradient(
+      circle at calc(50% + var(--lx) * 45%) calc(50% + var(--ly) * 45%),
+      var(--gold-spec) 0%,
+      color-mix(in oklch, var(--gold-spec) 70%, transparent) 14%,
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at calc(50% + var(--lx) * 35%) calc(50% + var(--ly) * 35%),
+      var(--gold-glow) 0%,
+      transparent 65%
+    ),
+    linear-gradient(
+      calc(120deg + var(--lx) * 20deg),
+      transparent 35%,
+      color-mix(in oklch, var(--gold-200) 80%, transparent) 50%,
+      transparent 65%
+    ),
+    linear-gradient(var(--gold-base), var(--gold-base));
+}
+
+@media (min-width: 768px) {
+  .hero-headline {
+    font-size: var(--text-fluid-hero);
+  }
+}
+
+.hero-sub {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: var(--text-fluid-body);
+  line-height: 1.6;
+  color: var(--slate-200);
+  max-width: 520px;
+  text-wrap: pretty;
+  margin: 0;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+/* Home-specific section tweaks */
+@media (min-width: 768px) {
+  .services .section__inner {
+    padding-top: 0 !important;
+  }
+}

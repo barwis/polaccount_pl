@@ -1,0 +1,646 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog - Wiedza i praktyka | PolAccount</title>
+    <link rel="stylesheet" href="../../../assets/palette/palette.css" />
+    <link rel="stylesheet" href="./global.css" />
+    <link rel="stylesheet" href="./ui.css" />
+  </head>
+  <body>
+    <!-- =============================================
+         NAV
+         ============================================= -->
+    <header class="site-nav site-nav--page" id="site-nav">
+      <div class="site-nav__inner">
+        <a href="home.html" class="site-nav__logo">
+          <img
+            src="../../design_guidelines/assets/logo.svg"
+            alt="PolAccount"
+            class="site-nav__logo-mark"
+          />
+        </a>
+        <nav class="site-nav__links" id="nav-links">
+          <button type="button" class="site-nav__close" id="nav-close" aria-label="Zamknij menu">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M1 1L17 17M17 1L1 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </button>
+          <a href="#" class="site-nav__link">Usługi</a>
+          <a href="#" class="site-nav__link">O nas</a>
+          <a href="blog-index.html" class="site-nav__link site-nav__link--active">Blog</a>
+          <a href="#" class="site-nav__link">Kontakt</a>
+          <a href="#" class="btn btn--ghost-inv site-nav__cta">Umów konsultację</a>
+        </nav>
+        <button
+          type="button"
+          class="site-nav__hamburger"
+          id="nav-hamburger"
+          aria-label="Menu"
+          aria-expanded="false"
+        >
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <!-- =============================================
+           PAGE BANNER
+           ============================================= -->
+      <div class="page-banner">
+        <div class="page-banner__inner">
+          <p class="page-banner__eyebrow">Wiedza i praktyka</p>
+          <h1 class="page-banner__title">Blog</h1>
+          <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <ol class="breadcrumbs__list">
+              <li class="breadcrumbs__item">
+                <a href="home.html" class="breadcrumbs__link">Start</a>
+              </li>
+              <li
+                class="breadcrumbs__item breadcrumbs__item--current"
+                aria-current="page"
+              >
+                Blog
+              </li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+
+      <!-- =============================================
+           BLOG CONTENT
+           ============================================= -->
+      <section class="section--light blog-index">
+        <div class="section__inner">
+          <!-- Search: mobile only (sidebar search hidden on mobile) -->
+          <form
+            class="sidebar-search blog-index__search-mobile"
+            role="search"
+            action="#"
+            method="get"
+          >
+            <div class="sidebar-search__field">
+              <label for="mobile-search-input" class="sr-only"
+                >Szukaj w blogu</label
+              >
+              <input
+                id="mobile-search-input"
+                class="form-input sidebar-search__input"
+                type="search"
+                name="s"
+                placeholder="Wpisz szukaną frazę..."
+                autocomplete="off"
+              />
+              <button
+                type="submit"
+                class="sidebar-search__btn"
+                aria-label="Szukaj w blogu"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                >
+                  <circle
+                    cx="6.5"
+                    cy="6.5"
+                    r="5"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                  />
+                  <path
+                    d="M10.5 10.5L14 14"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              </button>
+            </div>
+          </form>
+
+          <!-- Main + sidebar -->
+          <div class="blog-index__body">
+            <!-- Main: featured post + post grid + pagination -->
+            <div class="blog-index__main">
+              <!-- Featured post -->
+              <a href="blog-post.html" class="post-featured">
+                <div class="post-featured__image">
+                  <img
+                    src="../../design_guidelines/assets/images/vitaly-gariev-biciz2eSkiA-unsplash.jpg"
+                    alt=""
+                  />
+                </div>
+                <div class="post-featured__body">
+                  <div class="post-featured__badge">Wyrozniiony artykuł</div>
+                  <div class="post-featured__meta">
+                    <span class="post-featured__cat">Compliance</span>
+                    <span class="post-featured__date">Maj 2025</span>
+                  </div>
+                  <h2 class="post-featured__title">
+                    Rejestracja VAT w UK - kiedy i jak zrobić to poprawnie
+                  </h2>
+                  <p class="post-featured__excerpt">
+                    Progi rejestracyjne, terminy i najczęstsze błędy przy
+                    rejestracji VAT w Wielkiej Brytanii. Co musisz wiedzieć
+                    zanim przekroczysz limit obrotu i jak uniknąć kar.
+                  </p>
+                  <span class="post-featured__cta">Czytaj artykuł</span>
+                </div>
+              </a>
+
+              <div
+                class="view-toggle"
+                role="group"
+                aria-label="Widok artykułów"
+              >
+                <button
+                  type="button"
+                  class="view-toggle__btn view-toggle__btn--active"
+                  id="btn-tiles"
+                  aria-pressed="true"
+                  title="Widok kafelków"
+                >
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
+                  >
+                    <rect
+                      x="1"
+                      y="1"
+                      width="6"
+                      height="6"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                    />
+                    <rect
+                      x="9"
+                      y="1"
+                      width="6"
+                      height="6"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                    />
+                    <rect
+                      x="1"
+                      y="9"
+                      width="6"
+                      height="6"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                    />
+                    <rect
+                      x="9"
+                      y="9"
+                      width="6"
+                      height="6"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                    />
+                  </svg>
+                </button>
+                <button
+                  type="button"
+                  class="view-toggle__btn"
+                  id="btn-list"
+                  aria-pressed="false"
+                  title="Widok listy"
+                >
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
+                  >
+                    <rect
+                      x="1"
+                      y="2"
+                      width="14"
+                      height="3.5"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                    />
+                    <rect
+                      x="1"
+                      y="10.5"
+                      width="14"
+                      height="3.5"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                    />
+                  </svg>
+                </button>
+              </div>
+
+              <div class="cards cards--half" id="post-grid">
+                <a class="card card--article" href="blog-post.html">
+                  <div class="card__image">
+                    <img
+                      src="../../design_guidelines/assets/images/andrea-de-santis-kkbf9FKJM7I-unsplash.jpg"
+                      alt=""
+                    />
+                  </div>
+                  <div class="card__content">
+                    <div class="card__meta">
+                      <span class="card__eyebrow">Company Formation</span>
+                      <span class="card__date">Kwiecień 2025</span>
+                    </div>
+                    <h3 class="card__label">
+                      Ltd vs sole trader - którą formę działalności wybrać dla
+                      polskiej firmy w UK
+                    </h3>
+                    <p class="card__copy">
+                      Porównanie struktur prawnych, odpowiedzialności i obciążeń
+                      podatkowych. Praktyczny przewodnik dla polskich
+                      przedsiębiorców.
+                    </p>
+                    <span class="card__link">Czytaj więcej</span>
+                  </div>
+                </a>
+
+                <a class="card card--article" href="blog-post.html">
+                  <div class="card__image card__image--placeholder"></div>
+                  <div class="card__content">
+                    <div class="card__meta">
+                      <span class="card__eyebrow">Podatki</span>
+                      <span class="card__date">Marzec 2025</span>
+                    </div>
+                    <h3 class="card__label">
+                      Self Assessment w UK - przewodnik krok po kroku
+                    </h3>
+                    <p class="card__copy">
+                      Terminy, formularz SA100, odliczenia i kary za spóźnienie.
+                      Wszystko co potrzebujesz wiedzieć o rocznym rozliczeniu
+                      podatkowym.
+                    </p>
+                    <span class="card__link">Czytaj więcej</span>
+                  </div>
+                </a>
+
+                <a class="card card--article" href="blog-post.html">
+                  <div class="card__image card__image--placeholder"></div>
+                  <div class="card__content">
+                    <div class="card__meta">
+                      <span class="card__eyebrow">Payroll</span>
+                      <span class="card__date">Luty 2025</span>
+                    </div>
+                    <h3 class="card__label">
+                      PAYE i National Insurance - obowiązki pracodawcy w UK
+                    </h3>
+                    <p class="card__copy">
+                      Jak skonfigurować listę płac, kiedy odprowadzać składki i
+                      jakich terminów pilnować. Kompletny przewodnik dla nowych
+                      pracodawców.
+                    </p>
+                    <span class="card__link">Czytaj więcej</span>
+                  </div>
+                </a>
+
+                <a class="card card--article" href="blog-post.html">
+                  <div class="card__image card__image--placeholder"></div>
+                  <div class="card__content">
+                    <div class="card__meta">
+                      <span class="card__eyebrow">Company Formation</span>
+                      <span class="card__date">Styczeń 2025</span>
+                    </div>
+                    <h3 class="card__label">
+                      Rejestracja spółki LTD w UK - cały proces od A do Z
+                    </h3>
+                    <p class="card__copy">
+                      Companies House, Memorandum of Association, udziałowcy i
+                      dyrektorzy. Co potrzebne i ile to trwa.
+                    </p>
+                    <span class="card__link">Czytaj więcej</span>
+                  </div>
+                </a>
+
+                <a class="card card--article" href="blog-post.html">
+                  <div class="card__image card__image--placeholder"></div>
+                  <div class="card__content">
+                    <div class="card__meta">
+                      <span class="card__eyebrow">Podatki</span>
+                      <span class="card__date">Grudzień 2024</span>
+                    </div>
+                    <h3 class="card__label">
+                      Corporation Tax w UK - stawki, terminy i jak złożyć
+                      zeznanie
+                    </h3>
+                    <p class="card__copy">
+                      Aktualne stawki podatku od osób prawnych, ulgi
+                      inwestycyjne i terminy płatności. Praktyczne wskazówki dla
+                      właścicieli LTD.
+                    </p>
+                    <span class="card__link">Czytaj więcej</span>
+                  </div>
+                </a>
+
+                <a class="card card--article" href="blog-post.html">
+                  <div class="card__image card__image--placeholder"></div>
+                  <div class="card__content">
+                    <div class="card__meta">
+                      <span class="card__eyebrow">VAT</span>
+                      <span class="card__date">Listopad 2024</span>
+                    </div>
+                    <h3 class="card__label">
+                      Making Tax Digital - co musisz wiedzieć o cyfrowej
+                      księgowości VAT
+                    </h3>
+                    <p class="card__copy">
+                      MTD for VAT jest już obowiązkowe dla wszystkich firm
+                      zarejestrowanych do VAT. Jakie oprogramowanie wybrać i jak
+                      się dostosować.
+                    </p>
+                    <span class="card__link">Czytaj więcej</span>
+                  </div>
+                </a>
+              </div>
+              <!-- /#post-grid -->
+
+              <nav class="pagination" aria-label="Strony wynikow">
+                <a
+                  href="#"
+                  class="pagination__btn"
+                  aria-label="Poprzednia strona"
+                  >&#8592;</a
+                >
+                <a
+                  href="#"
+                  class="pagination__btn pagination__btn--active"
+                  aria-current="page"
+                  >1</a
+                >
+                <a href="#" class="pagination__btn">2</a>
+                <a href="#" class="pagination__btn">3</a>
+                <span class="pagination__ellipsis">...</span>
+                <a href="#" class="pagination__btn">8</a>
+                <a href="#" class="pagination__btn" aria-label="Następna strona"
+                  >&#8594;</a
+                >
+              </nav>
+            </div>
+            <!-- /.blog-index__main -->
+
+            <!-- Sidebar -->
+            <aside class="blog-sidebar">
+              <!-- Search: desktop only - stays sticky at top of sidebar -->
+              <div class="sidebar-widget blog-sidebar__search-desktop blog-sidebar__search-sticky">
+                <h2 class="sidebar-widget__title">Szukaj</h2>
+                <form
+                  class="sidebar-search"
+                  role="search"
+                  action="#"
+                  method="get"
+                >
+                  <div class="sidebar-search__field">
+                    <label for="sidebar-search-input" class="sr-only"
+                      >Szukaj w blogu</label
+                    >
+                    <input
+                      id="sidebar-search-input"
+                      class="form-input sidebar-search__input"
+                      type="search"
+                      name="s"
+                      placeholder="Wpisz szukaną frazę..."
+                      autocomplete="off"
+                    />
+                    <button
+                      type="submit"
+                      class="sidebar-search__btn"
+                      aria-label="Szukaj"
+                    >
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true"
+                      >
+                        <circle
+                          cx="6.5"
+                          cy="6.5"
+                          r="5"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                        />
+                        <path
+                          d="M10.5 10.5L14 14"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                </form>
+              </div>
+
+              <!-- Scrollable widgets -->
+              <div class="blog-sidebar__scroll">
+
+              <!-- Latest posts -->
+              <div class="sidebar-widget">
+                <h2 class="sidebar-widget__title">Ostatnie artykuły</h2>
+                <ul class="sidebar-posts">
+                  <li class="sidebar-posts__item">
+                    <a href="blog-post.html" class="sidebar-posts__link">
+                      <span class="sidebar-posts__title"
+                        >Rejestracja VAT w UK - kiedy i jak zrobić to
+                        poprawnie</span
+                      >
+                    </a>
+                  </li>
+                  <li class="sidebar-posts__item">
+                    <a href="blog-post.html" class="sidebar-posts__link">
+                      <span class="sidebar-posts__title"
+                        >Ltd vs sole trader - którą formę działalności
+                        wybrać</span
+                      >
+                    </a>
+                  </li>
+                  <li class="sidebar-posts__item">
+                    <a href="blog-post.html" class="sidebar-posts__link">
+                      <span class="sidebar-posts__title"
+                        >Self Assessment w UK - przewodnik krok po kroku</span
+                      >
+                    </a>
+                  </li>
+                  <li class="sidebar-posts__item">
+                    <a href="blog-post.html" class="sidebar-posts__link">
+                      <span class="sidebar-posts__title"
+                        >PAYE i National Insurance - obowiązki pracodawcy w
+                        UK</span
+                      >
+                    </a>
+                  </li>
+                  <li class="sidebar-posts__item">
+                    <a href="blog-post.html" class="sidebar-posts__link">
+                      <span class="sidebar-posts__title"
+                        >Making Tax Digital - co musisz wiedzieć o cyfrowej
+                        księgowości VAT</span
+                      >
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Categories -->
+              <div class="sidebar-widget">
+                <h2 class="sidebar-widget__title">Kategorie</h2>
+                <ul class="sidebar-cats">
+                  <li class="sidebar-cats__item">
+                    <a href="#" class="sidebar-cats__link"
+                      >Podatki <span class="sidebar-cats__count">14</span></a
+                    >
+                  </li>
+                  <li class="sidebar-cats__item">
+                    <a href="#" class="sidebar-cats__link"
+                      >Compliance <span class="sidebar-cats__count">9</span></a
+                    >
+                  </li>
+                  <li class="sidebar-cats__item">
+                    <a href="#" class="sidebar-cats__link"
+                      >Company Formation
+                      <span class="sidebar-cats__count">7</span></a
+                    >
+                  </li>
+                  <li class="sidebar-cats__item">
+                    <a href="#" class="sidebar-cats__link"
+                      >Payroll <span class="sidebar-cats__count">6</span></a
+                    >
+                  </li>
+                  <li class="sidebar-cats__item">
+                    <a href="#" class="sidebar-cats__link"
+                      >VAT <span class="sidebar-cats__count">11</span></a
+                    >
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Free text -->
+              <div class="sidebar-widget sidebar-widget--teal">
+                <p class="sidebar-promo__body">
+                  Chcesz wiedzieć więcej na dany temat? Masz inne pytania?
+                  Zadzwoń do nas pod numer
+                  <a href="tel:02087672796" class="sidebar-promo__tel"
+                    >0208 767 27 96</a
+                  >
+                  lub wypełnij
+                  <a href="#" class="sidebar-promo__link"
+                    >formularz kontaktowy tutaj!</a
+                  >
+                </p>
+              </div>
+              </div><!-- /.blog-sidebar__scroll -->
+            </aside>
+            <!-- /.blog-sidebar -->
+          </div>
+          <!-- /.blog-index__body -->
+        </div>
+      </section>
+    </main>
+
+    <!-- =============================================
+         FOOTER
+         ============================================= -->
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <div class="site-footer__col site-footer__col--brand">
+          <span class="site-footer__logo">PolAccount</span>
+          <p class="site-footer__tagline">
+            Kompleksowa obsługa dla polskich firm w UK.
+          </p>
+        </div>
+        <div class="site-footer__col">
+          <p class="site-footer__col-heading">Menu</p>
+          <ul class="site-footer__links">
+            <li><a href="#">Usługi</a></li>
+            <li><a href="#">O nas</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Kontakt</a></li>
+            <li><a href="#">Polityka prywatności</a></li>
+          </ul>
+        </div>
+        <div class="site-footer__col">
+          <p class="site-footer__col-heading">Kontakt</p>
+          <ul class="site-footer__contact">
+            <li>
+              <a href="mailto:biuro@polaccount.pl">biuro@polaccount.pl</a>
+            </li>
+            <li><a href="tel:+48000000000">+48 000 000 000</a></li>
+            <li><a href="#">WhatsApp</a></li>
+            <li><a href="#">LinkedIn</a></li>
+          </ul>
+        </div>
+        <div class="site-footer__col">
+          <p class="site-footer__col-heading">Biura</p>
+          <address class="site-footer__address">
+            <p class="site-footer__address-label">Warszawa</p>
+            ul. Przykładowa 1<br />
+            00-000 Warszawa<br />
+            Polska
+          </address>
+          <address class="site-footer__address">
+            <p class="site-footer__address-label">Londyn</p>
+            1 Example Street<br />
+            London EC1A 1BB<br />
+            United Kingdom
+          </address>
+        </div>
+      </div>
+      <div class="site-footer__bar">
+        <span>© 2026 PolAccount · Registered in Poland · VAT PL [number]</span>
+      </div>
+    </footer>
+
+    <script>
+      const hamburger = document.getElementById("nav-hamburger");
+      const navClose = document.getElementById("nav-close");
+      const navLinks = document.getElementById("nav-links");
+
+      function openNav() {
+        navLinks.classList.add("site-nav__links--open");
+        hamburger.setAttribute("aria-expanded", "true");
+      }
+
+      function closeNav() {
+        navLinks.classList.remove("site-nav__links--open");
+        hamburger.setAttribute("aria-expanded", "false");
+      }
+
+      hamburger.addEventListener("click", openNav);
+      navClose.addEventListener("click", closeNav);
+
+      const grid = document.getElementById("post-grid");
+      const btnTiles = document.getElementById("btn-tiles");
+      const btnList = document.getElementById("btn-list");
+
+      btnTiles.addEventListener("click", () => {
+        grid.classList.remove("cards--list");
+        btnTiles.setAttribute("aria-pressed", "true");
+        btnList.setAttribute("aria-pressed", "false");
+        btnTiles.classList.add("view-toggle__btn--active");
+        btnList.classList.remove("view-toggle__btn--active");
+      });
+
+      btnList.addEventListener("click", () => {
+        grid.classList.add("cards--list");
+        btnList.setAttribute("aria-pressed", "true");
+        btnTiles.setAttribute("aria-pressed", "false");
+        btnList.classList.add("view-toggle__btn--active");
+        btnTiles.classList.remove("view-toggle__btn--active");
+      });
+    </script>
+  </body>
+</html>

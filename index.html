@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WordPress Templates — PolAccount</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
+    <style>
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+      body {
+        font-family: "Inter", sans-serif;
+        font-size: 14px;
+        background: #0f1a1c;
+        color: #c8d4d6;
+        min-height: 100vh;
+        padding: 48px 24px 80px;
+      }
+
+      .page-header {
+        width: min(1200px, 100%);
+        margin: 0 auto 56px;
+        padding-bottom: 24px;
+        border-bottom: 1px solid #1e3235;
+      }
+
+      .page-header__label {
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: #017865;
+        margin-bottom: 10px;
+      }
+
+      .page-header__title {
+        font-size: 22px;
+        font-weight: 500;
+        color: #fff;
+        letter-spacing: -0.01em;
+      }
+
+      .section-heading {
+        width: min(1200px, 100%);
+        margin: 0 auto 20px;
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: #3d6366;
+      }
+
+      .template-grid {
+        width: min(1200px, 100%);
+        margin: 0 auto 56px;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 3px;
+      }
+
+      .template-card {
+        display: flex;
+        flex-direction: column;
+        text-decoration: none;
+        background: #111e20;
+        border-top: 3px solid #00514A;
+        transition: border-color 0.15s, background 0.15s;
+      }
+
+      .template-card:hover {
+        border-color: #017865;
+        background: #152224;
+      }
+
+      .template-card__thumb {
+        width: 100%;
+        aspect-ratio: 16 / 10;
+        background: #1a2e31;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .template-card__thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        opacity: 0.85;
+        transition: opacity 0.2s, transform 0.3s;
+      }
+
+      .template-card:hover .template-card__thumb img {
+        opacity: 1;
+        transform: scale(1.02);
+      }
+
+      .template-card__thumb-placeholder {
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #2a4548;
+      }
+
+      .template-card__body {
+        padding: 20px 22px 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        flex: 1;
+      }
+
+      .template-card__name {
+        font-size: 14px;
+        font-weight: 600;
+        color: #fff;
+        letter-spacing: -0.01em;
+      }
+
+      .template-card__desc {
+        font-size: 12px;
+        line-height: 1.55;
+        color: #5a7b80;
+      }
+
+      .template-card__meta {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 8px;
+      }
+
+      .template-card__status {
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding: 3px 8px;
+      }
+
+      .template-card__status--done {
+        background: #0d2e2b;
+        color: #017865;
+      }
+
+      .template-card__status--planned {
+        background: #1e2a2c;
+        color: #3d6366;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="page-header">
+      <p class="page-header__label">polaccount — WordPress theme</p>
+      <h1 class="page-header__title">Template index</h1>
+    </div>
+
+    <p class="section-heading">polaccount.pl</p>
+
+    <div class="template-grid">
+
+      <a class="template-card" href="./polaccount_pl/home.html">
+        <div class="template-card__thumb">
+          <span class="template-card__thumb-placeholder">Image coming</span>
+        </div>
+        <div class="template-card__body">
+          <span class="template-card__name">Home</span>
+          <span class="template-card__desc">Homepage - hero, services, about, testimonials, pricing, CTA form.</span>
+          <div class="template-card__meta">
+            <span class="template-card__status template-card__status--done">Done</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="template-card" href="./polaccount_pl/blog-index.html">
+        <div class="template-card__thumb">
+          <span class="template-card__thumb-placeholder">Image coming</span>
+        </div>
+        <div class="template-card__body">
+          <span class="template-card__name">Blog index</span>
+          <span class="template-card__desc">Blog listing - featured post, card/list toggle, sidebar, pagination.</span>
+          <div class="template-card__meta">
+            <span class="template-card__status template-card__status--done">Done</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="template-card" href="./polaccount_pl/blog-post.html">
+        <div class="template-card__thumb">
+          <span class="template-card__thumb-placeholder">Image coming</span>
+        </div>
+        <div class="template-card__body">
+          <span class="template-card__name">Blog post</span>
+          <span class="template-card__desc">Single article - post header, body content, sidebar, related posts.</span>
+          <div class="template-card__meta">
+            <span class="template-card__status template-card__status--done">Done</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="template-card" href="#">
+        <div class="template-card__thumb">
+          <span class="template-card__thumb-placeholder">Image coming</span>
+        </div>
+        <div class="template-card__body">
+          <span class="template-card__name">Parent page</span>
+          <span class="template-card__desc">Static page with tile grid linking to child pages. Tile: image, title, excerpt, read more.</span>
+          <div class="template-card__meta">
+            <span class="template-card__status template-card__status--planned">Planned</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="template-card" href="./polaccount_pl/404.html">
+        <div class="template-card__thumb">
+          <span class="template-card__thumb-placeholder">Image coming</span>
+        </div>
+        <div class="template-card__body">
+          <span class="template-card__name">404</span>
+          <span class="template-card__desc">Not found page.</span>
+          <div class="template-card__meta">
+            <span class="template-card__status template-card__status--done">Done</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="template-card" href="./polaccount_pl/search.html">
+        <div class="template-card__thumb">
+          <span class="template-card__thumb-placeholder">Image coming</span>
+        </div>
+        <div class="template-card__body">
+          <span class="template-card__name">Search results</span>
+          <span class="template-card__desc">Search form and results listing.</span>
+          <div class="template-card__meta">
+            <span class="template-card__status template-card__status--done">Done</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="template-card" href="#">
+        <div class="template-card__thumb">
+          <span class="template-card__thumb-placeholder">Image coming</span>
+        </div>
+        <div class="template-card__body">
+          <span class="template-card__name">Page with sidebar</span>
+          <span class="template-card__desc">Standard content page with sidebar.</span>
+          <div class="template-card__meta">
+            <span class="template-card__status template-card__status--planned">Planned</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+
+  </body>
+</html>
