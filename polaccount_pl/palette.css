@@ -1,0 +1,515 @@
+:root {
+  /* === ORIGINAL BASE COLORS (SOURCE OF TRUTH) === */
+
+  --teal-primary: oklch(0.42 0.09 182); /* #00514A */
+  --teal-secondary: oklch(
+    0.54 0.11 174
+  ); /* #017865 — lightened for white-text contrast */
+
+  --gold-base: oklch(0.72 0.1 85); /* #C6A75E */
+
+  --slate-dark: oklch(
+    0.28 0.015 205
+  ); /* #2F3E46 — hue shifted, chroma reduced to kill blue cast */
+  --slate-mid: oklch(0.45 0.02 205); /* #5F6F73 — use --slate-500 instead */
+
+  /* --bg-base retired — use --bg-100 (oklch(0.97 0.004 180)) instead */
+  --white: oklch(1 0 0); /* #FFFFFF */
+
+  --border: oklch(0.92 0.01 180); /* #E6ECEB */
+}
+
+:root {
+  /* =========================================================
+     TEAL (PRIMARY BRAND SYSTEM)
+     Anchors:
+     - #017865 → 500
+     - #00514A → 700
+     ========================================================= */
+
+  --teal-50: oklch(0.98 0.01 175);
+  --teal-100: oklch(0.92 0.03 175);
+  --teal-200: oklch(0.82 0.05 176);
+  --teal-300: oklch(0.7 0.07 177);
+  --teal-400: oklch(0.6 0.09 178);
+  --teal-500: oklch(
+    0.54 0.11 174
+  ); /* #017865 — lightened for white-text contrast - --teal-secondary*/
+  --teal-600: oklch(0.46 0.1 178);
+  --teal-700: oklch(0.42 0.09 182); /* #00514A */
+  --teal-800: oklch(0.35 0.07 182);
+  --teal-900: oklch(0.28 0.05 182);
+
+  /* =========================================================
+     GOLD (ACCENT SYSTEM)
+     Anchors:
+     - #C6A75E → 500
+     ========================================================= */
+
+  --gold-50: oklch(0.98 0.01 85);
+  --gold-100: oklch(0.92 0.03 85);
+  --gold-200: oklch(0.84 0.06 85);
+  --gold-300: oklch(0.76 0.08 85);
+  --gold-400: oklch(0.76 0.13 86); /* enhanced chroma — dark-surface accents */
+  --gold-500: oklch(0.72 0.1 85); /* #C6A75E */
+  --gold-600: oklch(0.65 0.11 84);
+  --gold-700: oklch(0.58 0.11 83);
+  --gold-800: oklch(0.5 0.09 82);
+  --gold-900: oklch(0.42 0.07 80);
+
+  /* derived highlight tones from your palette */
+  --gold-spec: oklch(0.9 0.04 90); /* soft warm highlight */
+  --gold-glow: oklch(0.78 0.08 85); /* mid highlight */
+
+  /* =========================================================
+     SLATE (NEUTRAL UI SYSTEM)
+     Anchors:
+     - #5F6F73 → 500
+     - #2F3E46 → 800
+     ========================================================= */
+
+  --slate-50: oklch(0.98 0.005 200);
+  --slate-100: oklch(0.93 0.006 200);
+  --slate-200: oklch(0.86 0.008 200);
+  --slate-300: oklch(0.76 0.01 200);
+  --slate-400: oklch(0.65 0.012 200);
+  --slate-500: oklch(0.55 0.013 200); /* #5F6F73 */
+  --slate-600: oklch(0.48 0.014 200);
+  --slate-700: oklch(0.4 0.013 200);
+  --slate-800: oklch(
+    0.28 0.015 205
+  ); /* #2F3E46 — hue shifted, chroma reduced to kill blue cast */
+  --slate-900: oklch(0.2 0.02 200);
+
+  /* =========================================================
+     BACKGROUND SCALE (SURFACES ONLY)
+     ========================================================= */
+
+  --bg-50: oklch(0.99 0.003 180); /* near-white tint */
+  --bg-100: oklch(0.97 0.004 180); /* #FAFBFA */
+  --bg-200: oklch(0.94 0.005 180);
+  --bg-300: oklch(0.9 0.006 180);
+
+  /* =========================================================
+     BASE SURFACES
+     ========================================================= */
+
+  --white: #ffffff;
+  --border: oklch(0.92 0.01 180); /* #E6ECEB */
+
+  /* =========================================================
+     OPTIONAL SEMANTIC SYSTEM
+     ========================================================= */
+
+  --success-500: oklch(0.65 0.1 150);
+  --warning-500: oklch(0.75 0.1 85);
+  --error-500: oklch(0.6 0.14 25);
+}
+
+/* =========================
+   TEXT COLORS
+   ========================= */
+
+/* TEAL */
+.text-teal-50 {
+  color: var(--teal-50);
+}
+.text-teal-100 {
+  color: var(--teal-100);
+}
+.text-teal-200 {
+  color: var(--teal-200);
+}
+.text-teal-300 {
+  color: var(--teal-300);
+}
+.text-teal-400 {
+  color: var(--teal-400);
+}
+.text-teal-500 {
+  color: var(--teal-500);
+}
+.text-teal-600 {
+  color: var(--teal-600);
+}
+.text-teal-700 {
+  color: var(--teal-700);
+}
+.text-teal-800 {
+  color: var(--teal-800);
+}
+.text-teal-900 {
+  color: var(--teal-900);
+}
+
+/* GOLD */
+.text-gold-50 {
+  color: var(--gold-50);
+}
+.text-gold-100 {
+  color: var(--gold-100);
+}
+.text-gold-200 {
+  color: var(--gold-200);
+}
+.text-gold-300 {
+  color: var(--gold-300);
+}
+.text-gold-400 {
+  color: var(--gold-400);
+}
+.text-gold-500 {
+  color: var(--gold-500);
+}
+.text-gold-600 {
+  color: var(--gold-600);
+}
+.text-gold-700 {
+  color: var(--gold-700);
+}
+.text-gold-800 {
+  color: var(--gold-800);
+}
+.text-gold-900 {
+  color: var(--gold-900);
+}
+
+/* SLATE */
+.text-slate-50 {
+  color: var(--slate-50);
+}
+.text-slate-100 {
+  color: var(--slate-100);
+}
+.text-slate-200 {
+  color: var(--slate-200);
+}
+.text-slate-300 {
+  color: var(--slate-300);
+}
+.text-slate-400 {
+  color: var(--slate-400);
+}
+.text-slate-500 {
+  color: var(--slate-500);
+}
+.text-slate-600 {
+  color: var(--slate-600);
+}
+.text-slate-700 {
+  color: var(--slate-700);
+}
+.text-slate-800 {
+  color: var(--slate-800);
+}
+.text-slate-900 {
+  color: var(--slate-900);
+}
+
+/* BACKGROUND SCALE (as text if needed) */
+.text-bg-50 {
+  color: var(--bg-50);
+}
+.text-bg-100 {
+  color: var(--bg-100);
+}
+.text-bg-200 {
+  color: var(--bg-200);
+}
+.text-bg-300 {
+  color: var(--bg-300);
+}
+
+/* BASE */
+.text-white {
+  color: var(--white);
+}
+.text-border {
+  color: var(--border);
+}
+
+/* SEMANTIC */
+.text-success-500 {
+  color: var(--success-500);
+}
+.text-warning-500 {
+  color: var(--warning-500);
+}
+.text-error-500 {
+  color: var(--error-500);
+}
+
+/* =========================
+   BACKGROUND COLORS
+   ========================= */
+
+/* TEAL */
+.bg-teal-50 {
+  background-color: var(--teal-50);
+}
+.bg-teal-100 {
+  background-color: var(--teal-100);
+}
+.bg-teal-200 {
+  background-color: var(--teal-200);
+}
+.bg-teal-300 {
+  background-color: var(--teal-300);
+}
+.bg-teal-400 {
+  background-color: var(--teal-400);
+}
+.bg-teal-500 {
+  background-color: var(--teal-500);
+}
+.bg-teal-600 {
+  background-color: var(--teal-600);
+}
+.bg-teal-700 {
+  background-color: var(--teal-700);
+}
+.bg-teal-800 {
+  background-color: var(--teal-800);
+}
+.bg-teal-900 {
+  background-color: var(--teal-900);
+}
+
+/* GOLD */
+.bg-gold-50 {
+  background-color: var(--gold-50);
+}
+.bg-gold-100 {
+  background-color: var(--gold-100);
+}
+.bg-gold-200 {
+  background-color: var(--gold-200);
+}
+.bg-gold-300 {
+  background-color: var(--gold-300);
+}
+.bg-gold-400 {
+  background-color: var(--gold-400);
+}
+.bg-gold-500 {
+  background-color: var(--gold-500);
+}
+.bg-gold-600 {
+  background-color: var(--gold-600);
+}
+.bg-gold-700 {
+  background-color: var(--gold-700);
+}
+.bg-gold-800 {
+  background-color: var(--gold-800);
+}
+.bg-gold-900 {
+  background-color: var(--gold-900);
+}
+
+/* SLATE */
+.bg-slate-50 {
+  background-color: var(--slate-50);
+}
+.bg-slate-100 {
+  background-color: var(--slate-100);
+}
+.bg-slate-200 {
+  background-color: var(--slate-200);
+}
+.bg-slate-300 {
+  background-color: var(--slate-300);
+}
+.bg-slate-400 {
+  background-color: var(--slate-400);
+}
+.bg-slate-500 {
+  background-color: var(--slate-500);
+}
+.bg-slate-600 {
+  background-color: var(--slate-600);
+}
+.bg-slate-700 {
+  background-color: var(--slate-700);
+}
+.bg-slate-800 {
+  background-color: var(--slate-800);
+}
+.bg-slate-900 {
+  background-color: var(--slate-900);
+}
+
+/* BACKGROUND SCALE */
+.bg-bg-50 {
+  background-color: var(--bg-50);
+}
+.bg-bg-100 {
+  background-color: var(--bg-100);
+}
+.bg-bg-200 {
+  background-color: var(--bg-200);
+}
+.bg-bg-300 {
+  background-color: var(--bg-300);
+}
+
+/* BASE */
+.bg-white {
+  background-color: var(--white);
+}
+.bg-border {
+  background-color: var(--border);
+}
+
+/* SEMANTIC */
+.bg-success-500 {
+  background-color: var(--success-500);
+}
+.bg-warning-500 {
+  background-color: var(--warning-500);
+}
+.bg-error-500 {
+  background-color: var(--error-500);
+}
+
+/* =========================
+   ON-COLOR (AUTO CONTRAST)
+   ========================= */
+
+/* TEAL */
+.on-teal-50,
+.on-teal-100,
+.on-teal-200,
+.on-teal-300,
+.on-teal-400,
+.on-teal-500 {
+  color: var(--slate-900);
+}
+
+.on-teal-600,
+.on-teal-700,
+.on-teal-800,
+.on-teal-900 {
+  color: var(--white);
+}
+
+/* GOLD */
+.on-gold-50,
+.on-gold-100,
+.on-gold-200,
+.on-gold-300,
+.on-gold-400,
+.on-gold-500 {
+  color: var(--slate-900);
+}
+
+.on-gold-600,
+.on-gold-700,
+.on-gold-800,
+.on-gold-900 {
+  color: var(--white);
+}
+
+/* SLATE */
+.on-slate-50,
+.on-slate-100,
+.on-slate-200,
+.on-slate-300,
+.on-slate-400 {
+  color: var(--slate-900);
+}
+
+.on-slate-500,
+.on-slate-600,
+.on-slate-700,
+.on-slate-800,
+.on-slate-900 {
+  color: var(--white);
+}
+
+/* BACKGROUND SCALE */
+.on-bg-50,
+.on-bg-100,
+.on-bg-200,
+.on-bg-300 {
+  color: var(--slate-900);
+}
+
+/* SEMANTIC */
+.on-success-500,
+.on-warning-500 {
+  color: var(--slate-900);
+}
+
+.on-error-500 {
+  color: var(--white);
+}
+
+/* =========================
+   HOVER / ACTIVE VARIANTS
+   ========================= */
+
+/* TEAL */
+.hover\:bg-teal-50:hover {
+  background-color: var(--teal-50);
+}
+.hover\:bg-teal-100:hover {
+  background-color: var(--teal-100);
+}
+.hover\:bg-teal-200:hover {
+  background-color: var(--teal-200);
+}
+.hover\:bg-teal-300:hover {
+  background-color: var(--teal-300);
+}
+.hover\:bg-teal-400:hover {
+  background-color: var(--teal-400);
+}
+.hover\:bg-teal-500:hover {
+  background-color: var(--teal-500);
+}
+.hover\:bg-teal-600:hover {
+  background-color: var(--teal-600);
+}
+.hover\:bg-teal-700:hover {
+  background-color: var(--teal-700);
+}
+.hover\:bg-teal-800:hover {
+  background-color: var(--teal-800);
+}
+.hover\:bg-teal-900:hover {
+  background-color: var(--teal-900);
+}
+
+.active\:bg-teal-50:active {
+  background-color: var(--teal-50);
+}
+.active\:bg-teal-100:active {
+  background-color: var(--teal-100);
+}
+.active\:bg-teal-200:active {
+  background-color: var(--teal-200);
+}
+.active\:bg-teal-300:active {
+  background-color: var(--teal-300);
+}
+.active\:bg-teal-400:active {
+  background-color: var(--teal-400);
+}
+.active\:bg-teal-500:active {
+  background-color: var(--teal-500);
+}
+.active\:bg-teal-600:active {
+  background-color: var(--teal-600);
+}
+.active\:bg-teal-700:active {
+  background-color: var(--teal-700);
+}
+.active\:bg-teal-800:active {
+  background-color: var(--teal-800);
+}
+.active\:bg-teal-900:active {
+  background-color: var(--teal-900);
+}
+
+/* Repeat same pattern for gold / slate / bg / semantic */
