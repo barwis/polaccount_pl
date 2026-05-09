@@ -127,10 +127,12 @@
               <!-- Featured post -->
               <a href="blog-post.html" class="post-featured">
                 <div class="post-featured__image">
-                  <img
-                    src="./assets/images/vitaly-gariev-biciz2eSkiA-unsplash.jpg"
-                    alt=""
-                  />
+                  <picture>
+                    <source media="(min-width: 768px)" srcset="./assets/images/vitaly-gariev-biciz2eSkiA-unsplash-desktop.webp" type="image/webp" />
+                    <source media="(min-width: 768px)" srcset="./assets/images/vitaly-gariev-biciz2eSkiA-unsplash-desktop.jpg" type="image/jpeg" />
+                    <source srcset="./assets/images/vitaly-gariev-biciz2eSkiA-unsplash-mobile.webp" type="image/webp" />
+                    <img src="./assets/images/vitaly-gariev-biciz2eSkiA-unsplash-mobile.jpg" alt="" />
+                  </picture>
                 </div>
                 <div class="post-featured__body">
                   <div class="post-featured__badge">Wyrozniiony artykuł</div>
@@ -241,9 +243,9 @@
 
               <div class="cards cards--half" id="post-grid">
                 <a class="card card--article" href="blog-post.html">
-                  <div class="card__image">
+                  <div class="card__image img-tint--darken">
                     <img
-                      src="./assets/images/andrea-de-santis-kkbf9FKJM7I-unsplash.jpg"
+                      src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=800&auto=format&fit=crop"
                       alt=""
                     />
                   </div>
@@ -596,7 +598,7 @@
         </div>
       </div>
       <div class="site-footer__bar">
-        <span>© 2026 PolAccount · Registered in Poland · VAT PL [number]</span>
+        <span>© 2026 PolAccount | Registered in Poland | VAT PL [number]</span>
       </div>
     </footer>
 

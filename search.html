@@ -136,10 +136,12 @@
               <div class="cards cards--list" id="search-results">
                 <a class="card card--article" href="blog-post.html">
                   <div class="card__image">
-                    <img
-                      src="./assets/images/vitaly-gariev-biciz2eSkiA-unsplash.jpg"
-                      alt=""
-                    />
+                    <picture>
+                      <source media="(min-width: 768px)" srcset="./assets/images/vitaly-gariev-biciz2eSkiA-unsplash-desktop.webp" type="image/webp" />
+                      <source media="(min-width: 768px)" srcset="./assets/images/vitaly-gariev-biciz2eSkiA-unsplash-desktop.jpg" type="image/jpeg" />
+                      <source srcset="./assets/images/vitaly-gariev-biciz2eSkiA-unsplash-mobile.webp" type="image/webp" />
+                      <img src="./assets/images/vitaly-gariev-biciz2eSkiA-unsplash-mobile.jpg" alt="" />
+                    </picture>
                   </div>
                   <div class="card__content">
                     <div class="card__meta">
@@ -454,7 +456,7 @@
         </div>
       </div>
       <div class="site-footer__bar">
-        <span>© 2026 PolAccount · Registered in Poland · VAT PL [number]</span>
+        <span>© 2026 PolAccount | Registered in Poland | VAT PL [number]</span>
       </div>
     </footer>
 

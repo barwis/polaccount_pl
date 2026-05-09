@@ -698,6 +698,55 @@
   display: block;
 }
 
+/* ============================================================
+   IMAGE TINT SYSTEM
+   Three utility wrappers — apply to the element that contains
+   the <img>. Each uses ::after so the img itself is untouched.
+   ============================================================ */
+
+/* Shared base for all tint variants */
+.img-tint--background,
+.img-tint--darken,
+.img-tint--teal {
+  position: relative;
+  overflow: hidden;
+}
+
+.img-tint--background::after,
+.img-tint--darken::after,
+.img-tint--teal::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* --hero: teal cast + heavy darken — for text-overlay hero sections */
+.img-tint--background::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: oklch(from var(--teal-primary) l c h / 0.45);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.img-tint--background::after {
+  background: oklch(from var(--slate-dark) l c h / 0.55);
+  z-index: 2;
+}
+
+/* --card: darken only — for blog thumbnails */
+.img-tint--darken::after {
+  background: oklch(from var(--slate-dark) l c h / 0.3);
+}
+
+/* --subtle: light teal wash — for decorative images */
+.img-tint--teal::after {
+  background: oklch(from var(--teal-primary) l c h / 0.25);
+}
+
 
 /* ============================================================
    CARDS
@@ -823,6 +872,8 @@
   object-fit: cover;
   display: block;
   transition: transform 0.4s ease;
+  position: relative;
+  z-index: 0;
 }
 
 .card--article:hover .card__image img {
@@ -1439,6 +1490,8 @@
   object-fit: cover;
   display: block;
   transition: transform 0.4s ease;
+  position: relative;
+  z-index: 0;
 }
 
 .post-featured__body {
@@ -1947,3 +2000,166 @@
   padding: 0 6px;
   user-select: none;
 }
+
+/* ============================================================
+   BADGES
+   ============================================================ */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 1;
+  padding: 4px 10px;
+  border-radius: 2px;
+  border: 1px solid transparent;
+}
+
+/* On light */
+.badge--teal {
+  background: var(--teal-50);
+  color: var(--teal-700);
+  border-color: var(--teal-200);
+}
+
+.badge--gold {
+  background: var(--gold-100);
+  color: var(--gold-700);
+  border-color: var(--gold-200);
+}
+
+.badge--slate {
+  background: var(--slate-100);
+  color: var(--slate-600);
+  border-color: var(--slate-300);
+}
+
+.badge--outline {
+  background: transparent;
+  color: var(--slate-600);
+  border-color: var(--slate-300);
+}
+
+/* On dark */
+.badge--teal-inv {
+  background: oklch(from var(--teal-secondary) l c h / 0.2);
+  color: var(--teal-100);
+  border-color: oklch(from var(--teal-300) l c h / 0.3);
+}
+
+.badge--gold-inv {
+  background: oklch(from var(--gold-500) l c h / 0.15);
+  color: var(--gold-300);
+  border-color: oklch(from var(--gold-400) l c h / 0.3);
+}
+
+.badge--slate-inv {
+  background: oklch(from var(--slate-600) l c h / 0.3);
+  color: var(--slate-300);
+  border-color: oklch(from var(--slate-400) l c h / 0.3);
+}
+
+.badge--outline-inv {
+  background: transparent;
+  color: oklch(from var(--white) l c h / 0.55);
+  border-color: oklch(from var(--white) l c h / 0.2);
+}
+
+/* On teal */
+.badge--teal-teal {
+  background: var(--teal-800);
+  color: var(--teal-200);
+  border-color: var(--teal-600);
+}
+
+.badge--gold-teal {
+  background: oklch(from var(--gold-500) l c h / 0.2);
+  color: var(--gold-300);
+  border-color: oklch(from var(--gold-400) l c h / 0.35);
+}
+
+.badge--slate-teal {
+  background: oklch(from var(--slate-800) l c h / 0.5);
+  color: var(--slate-300);
+  border-color: oklch(from var(--slate-500) l c h / 0.3);
+}
+
+.badge--outline-teal {
+  background: transparent;
+  color: oklch(from var(--white) l c h / 0.55);
+  border-color: oklch(from var(--white) l c h / 0.2);
+}
+
+/* Status - on light */
+.badge--success {
+  background: oklch(from var(--success-500) calc(l + 0.28) calc(c * 0.25) h);
+  color: oklch(from var(--success-500) calc(l - 0.3) c h);
+  border-color: oklch(from var(--success-500) calc(l + 0.15) calc(c * 0.5) h);
+}
+
+.badge--warning {
+  background: oklch(from var(--warning-500) calc(l + 0.18) calc(c * 0.25) h);
+  color: oklch(from var(--warning-500) calc(l - 0.4) c h);
+  border-color: oklch(from var(--warning-500) calc(l + 0.05) calc(c * 0.5) h);
+}
+
+.badge--error {
+  background: oklch(from var(--error-500) calc(l + 0.28) calc(c * 0.2) h);
+  color: oklch(from var(--error-500) calc(l - 0.25) c h);
+  border-color: oklch(from var(--error-500) calc(l + 0.12) calc(c * 0.45) h);
+}
+
+/* Status - on dark */
+.badge--success-inv {
+  background: oklch(from var(--success-500) l c h / 0.2);
+  color: oklch(from var(--success-500) calc(l + 0.2) c h);
+  border-color: oklch(from var(--success-500) l c h / 0.35);
+}
+
+.badge--warning-inv {
+  background: oklch(from var(--warning-500) l c h / 0.15);
+  color: oklch(from var(--warning-500) calc(l + 0.1) c h);
+  border-color: oklch(from var(--warning-500) l c h / 0.3);
+}
+
+.badge--error-inv {
+  background: oklch(from var(--error-500) l c h / 0.2);
+  color: oklch(from var(--error-500) calc(l + 0.2) c h);
+  border-color: oklch(from var(--error-500) l c h / 0.35);
+}
+
+/* Status - on teal */
+.badge--success-teal {
+  background: oklch(from var(--success-500) calc(l - 0.1) c h / 0.25);
+  color: oklch(from var(--success-500) calc(l + 0.2) c h);
+  border-color: oklch(from var(--success-500) l c h / 0.4);
+}
+
+.badge--warning-teal {
+  background: oklch(from var(--warning-500) calc(l - 0.1) c h / 0.2);
+  color: oklch(from var(--warning-500) calc(l + 0.1) c h);
+  border-color: oklch(from var(--warning-500) l c h / 0.35);
+}
+
+.badge--error-teal {
+  background: oklch(from var(--error-500) calc(l - 0.1) c h / 0.25);
+  color: oklch(from var(--error-500) calc(l + 0.2) c h);
+  border-color: oklch(from var(--error-500) l c h / 0.4);
+}
+
+/* ============================================================
+   TEXT STATUS COLOURS
+   ============================================================ */
+
+.text-success { color: oklch(from var(--success-500) calc(l - 0.15) c h); }
+.text-warning { color: oklch(from var(--warning-500) calc(l - 0.25) c h); }
+.text-error   { color: oklch(from var(--error-500) calc(l - 0.15) c h); }
+
+/* On dark backgrounds */
+.text-success-inv { color: oklch(from var(--success-500) calc(l + 0.2) c h); }
+.text-warning-inv { color: oklch(from var(--warning-500) calc(l + 0.1) c h); }
+.text-error-inv   { color: oklch(from var(--error-500) calc(l + 0.2) c h); }

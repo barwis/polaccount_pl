@@ -11,23 +11,43 @@
 .hero-bg {
   position: relative;
   height: 80vh;
-  background: url("hero-bg.jpg") right center / cover no-repeat;
+  background: var(--teal-primary) right center / cover no-repeat;
   isolation: isolate;
   overflow: hidden;
+}
+
+/* Full image layer — fades in once JS confirms load */
+.hero-bg__img {
+  position: absolute;
+  inset: 0;
+  background: url("assets/images/hero-bg-mobile.webp") right center / cover no-repeat;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  z-index: 0;
+}
+
+.hero-bg__img--loaded {
+  opacity: 1;
 }
 
 @media (min-width: 768px) {
   .hero-bg {
     height: 75vh;
+  }
+
+  .hero-bg__img {
+    background-image: url("assets/images/hero-bg.webp");
     background-position: left center;
   }
 }
+
 
 /* Teal tint */
 .hero-bg::before {
   content: "";
   position: absolute;
   inset: 0;
+  z-index: 1;
   background: var(--teal-primary);
   mix-blend-mode: soft-light;
   opacity: 1;
@@ -41,6 +61,7 @@
   content: "";
   position: absolute;
   inset: 0;
+  z-index: 1;
   background: linear-gradient(
     to top,
     oklch(from var(--slate-dark) l c h / 1)   0%,
@@ -61,7 +82,7 @@
 
 .hero-content {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   height: 100%;
   width: 100%;
   display: flex;

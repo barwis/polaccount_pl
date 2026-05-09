@@ -49,6 +49,7 @@
     </header>
     <main>
       <section class="hero-bg">
+        <div class="hero-bg__img" aria-hidden="true"></div>
         <div class="hero-content">
           <div class="hero-text">
             <p class="hero-eyebrow">
@@ -193,11 +194,12 @@
               <a href="#" class="btn btn--primary">Poznaj nas bliżej</a>
             </div>
             <div class="section__image">
-              <img
-                src="./assets/images/vitaly-gariev-biciz2eSkiA-unsplash.jpg"
-                alt=""
-                class="section__img"
-              />
+              <picture>
+                <source media="(min-width: 768px)" srcset="./assets/images/vitaly-gariev-biciz2eSkiA-unsplash-desktop.webp" type="image/webp" />
+                <source media="(min-width: 768px)" srcset="./assets/images/vitaly-gariev-biciz2eSkiA-unsplash-desktop.jpg" type="image/jpeg" />
+                <source srcset="./assets/images/vitaly-gariev-biciz2eSkiA-unsplash-mobile.webp" type="image/webp" />
+                <img src="./assets/images/vitaly-gariev-biciz2eSkiA-unsplash-mobile.jpg" alt="" class="section__img" />
+              </picture>
             </div>
           </div>
         </div>
@@ -571,11 +573,40 @@
         </div>
       </div>
       <div class="site-footer__bar">
-        <span>© 2026 PolAccount · Registered in Poland · VAT PL [number]</span>
+        <span>© 2026 PolAccount | Registered in Poland | VAT PL [number]</span>
       </div>
     </footer>
 
     <script>
+      (function () {
+        var isMobile = !window.matchMedia("(min-width: 768px)").matches;
+        var imgEl = document.querySelector(".hero-bg__img");
+        if (!imgEl) return;
+
+        function reveal(url) {
+          imgEl.style.backgroundImage = "url('" + url + "')";
+          imgEl.getBoundingClientRect(); /* force reflow so opacity:0 is painted before transition starts */
+          requestAnimationFrame(function () {
+            requestAnimationFrame(function () {
+              imgEl.classList.add("hero-bg__img--loaded");
+            });
+          });
+        }
+
+        function tryLoad(src, fallbackSrc) {
+          var img = new Image();
+          img.onload = function () { reveal(src); };
+          img.onerror = function () { if (fallbackSrc) reveal(fallbackSrc); };
+          img.src = src;
+        }
+
+        if (isMobile) {
+          tryLoad("assets/images/hero-bg-mobile.webp", "assets/images/hero-bg-mobile.jpg");
+        } else {
+          tryLoad("assets/images/hero-bg.webp", "assets/images/hero-bg.jpg");
+        }
+      })();
+
       const lenis = new Lenis();
       const headline = document.querySelector(".hero-headline");
 
@@ -586,8 +617,8 @@
         // 0 at scroll top, 1 when hero exits viewport
         const progress = Math.min(Math.max(scroll / heroHeight, 0), 1);
 
-        const lx = progress * 2 - 1; // -1 → +1
-        const ly = progress * 2 - 1; // -1 → +1
+        const lx = progress * 2 - 1; // -1 -> +1
+        const ly = progress * 2 - 1; // -1 -> +1
 
         headline.style.setProperty("--lx", lx.toFixed(3));
         headline.style.setProperty("--ly", ly.toFixed(3));
