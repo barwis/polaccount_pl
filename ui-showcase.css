@@ -160,7 +160,7 @@ main {
    ============================================================ */
 
 .slide--overview {
-  padding: var(--slide-pad-y) clamp(32px, 5cqi, 72px);
+  padding: var(--slide-pad-y) 0;
 }
 
 .overview-layout {
@@ -170,6 +170,7 @@ main {
   gap: clamp(24px, 4cqi, 64px);
   height: 100%;
   min-height: 0;
+  margin: 0 var(--slide-pad-x);
 }
 
 .overview-copy {
@@ -209,7 +210,6 @@ main {
   display: flex;
   flex-direction: column;
   gap: 6px;
-  margin-top: clamp(4px, 0.8cqi, 12px);
   padding-top: clamp(12px, 1.5cqi, 20px);
   border-top: 1px solid var(--slate-100);
 }
@@ -240,12 +240,12 @@ main {
 .overview-img {
   border-radius: 8px;
   overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  position: relative;
 }
 
 .overview-img img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -254,6 +254,10 @@ main {
 }
 
 .overview-img span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   font-size: clamp(9px, 0.8cqi, 11px);
   font-weight: 500;
   letter-spacing: 0.06em;
@@ -310,7 +314,7 @@ main {
   padding: clamp(16px, 2.5cqi, 32px) clamp(14px, 2cqi, 28px);
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: clamp(10px, 1.2cqi, 16px);
   filter: blur(0);
 }
 
@@ -326,9 +330,9 @@ main {
   font-family: var(--font-heading);
   font-weight: 400;
   font-size: clamp(28px, 4cqi, 56px);
+  margin: 0;
   line-height: 1.05;
   color: var(--slate-900);
-  margin-top: 4px;
 }
 
 .info-panel__body {
@@ -339,7 +343,6 @@ main {
 }
 
 .info-panel__body + .info-panel__body {
-  margin-top: clamp(6px, 0.8cqi, 10px);
   flex: 0;
 }
 
@@ -405,7 +408,6 @@ main {
   display: block;
   font-size: clamp(8px, 0.75cqi, 10px);
   color: var(--slate-500);
-  margin-top: 2px;
 }
 
 .specimen__glyph {
@@ -507,7 +509,7 @@ main {
   padding: clamp(16px, 2cqi, 24px);
   min-height: 0;
   filter: blur(0);
-  background: var(--bg-100);
+  background: var(--white);
 }
 
 /* ============================================================
@@ -684,7 +686,6 @@ main {
 
   .info-panel__body {
     font-size: 13px;
-    margin-top: 8px;
   }
 
   .specimen {
@@ -964,6 +965,7 @@ main {
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-content: start;
+  gap: clamp(6px, 0.8cqi, 10px);
   background: var(--bg-100);
   padding: clamp(16px, 2.5cqi, 32px) clamp(14px, 2cqi, 28px);
 }
@@ -1128,11 +1130,11 @@ main {
 }
 
 .elements-stage {
-  background: var(--bg-100);
+  background: var(--white);
   padding: clamp(16px, 2.5cqi, 32px) clamp(16px, 2cqi, 28px);
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: clamp(6px, 0.8cqi, 10px);
 }
 
 .elements-divider {
@@ -1172,7 +1174,7 @@ main {
 }
 
 .elements-cell--light {
-  background: var(--bg-100);
+  background: var(--white);
   border: 1px solid var(--border);
 }
 
@@ -1226,7 +1228,6 @@ main {
   display: flex;
   flex-direction: column;
   gap: clamp(10px, 1.2cqi, 16px);
-  margin-top: clamp(12px, 1.5cqi, 20px);
 }
 
 .tint-legend__item {
@@ -1660,13 +1661,78 @@ main {
   letter-spacing: 0.01em;
 }
 
+@page {
+  size: A4 landscape;
+  margin: 0;
+}
+
 @media print {
+  :root {
+    --slide-pad-y: 60px;
+  }
+
+  body {
+    background: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  main {
+    padding: 0 !important;
+    gap: 0 !important;
+    display: block;
+  }
+
   .slide {
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
     width: 297mm;
-    min-height: 210mm;
+    height: 210mm;
+    min-height: 0 !important;
+    max-height: 210mm;
+    overflow: hidden;
+    margin: 0;
+    padding: var(--slide-pad-y) 0 !important;
+    border: none;
+    box-sizing: border-box;
     page-break-after: always;
+    page-break-inside: avoid;
+    break-after: page;
+    break-inside: avoid;
+  }
+
+  .slide--dark {
+    background: var(--teal-primary) !important;
+  }
+
+
+  .palette-layout {
+    margin: 0 40px;
+    min-height: 0;
+    max-height: 100%;
+  }
+
+  .palette-swatches {
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .colour-column {
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .colour-column__primary {
+    min-height: 0;
+  }
+
+  .info-panel {
+    padding: 16px 20px;
+  }
+
+  .info-panel__body {
+    font-size: 10px;
+    line-height: 1.5;
   }
 }
 
@@ -1685,7 +1751,6 @@ main {
 .type-sample--secondary {
   font-size: clamp(9px, 0.9cqi, 12px);
   color: var(--slate-500);
-  margin-top: clamp(8px, 1cqi, 12px);
 }
 
 .link {

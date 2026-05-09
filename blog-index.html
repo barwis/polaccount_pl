@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pl">
+<html lang="pl" translate="no">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -244,10 +244,12 @@
               <div class="cards cards--half" id="post-grid">
                 <a class="card card--article" href="blog-post.html">
                   <div class="card__image img-tint--darken">
-                    <img
-                      src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=800&auto=format&fit=crop"
-                      alt=""
-                    />
+                    <picture>
+                      <source media="(min-width: 768px)" srcset="./assets/images/office-work-desktop.webp" type="image/webp" />
+                      <source media="(min-width: 768px)" srcset="./assets/images/office-work-desktop.jpg" type="image/jpeg" />
+                      <source srcset="./assets/images/office-work-mobile.webp" type="image/webp" />
+                      <img src="./assets/images/office-work-mobile.jpg" alt="" />
+                    </picture>
                   </div>
                   <div class="card__content">
                     <div class="card__meta">
