@@ -4,34 +4,112 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PolAccount - Ksiegowość i doradztwo dla polskich firm w UK</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <style>
+      @font-face {
+        font-family: "EB Garamond";
+        src: local("Georgia");
+        size-adjust: 85%;
+        descent-override: 10%;
+        font-display: block;
+      }
+      @font-face {
+        font-family: "Inter";
+        src: local("Arial");
+        font-display: block;
+        ascent-override: 10%;
+      }
+      :root {
+        --font-heading: "EB Garamond", serif;
+        --font-body: "Inter", sans-serif;
+      }
+
+      .hero-eyebrow,
+      .hero-headline,
+      .hero-sub,
+      .hero-actions,
+      .proof-bar__inner,
+      .proof-slot {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .hero-eyebrow,
+        .hero-headline,
+        .hero-sub,
+        .hero-actions,
+        .proof-bar__inner,
+        .proof-slot {
+          opacity: 1;
+          transform: none;
+        }
+      }
+    </style>
+    <noscript
+      ><style>
+        .hero-eyebrow,
+        .hero-headline,
+        .hero-sub,
+        .hero-actions,
+        .proof-bar__inner,
+        .proof-slot {
+          opacity: 1;
+          transform: none;
+        }
+      </style></noscript
+    >
     <link rel="stylesheet" href="palette.css" />
     <link rel="stylesheet" href="./global.css" />
     <link rel="stylesheet" href="./ui.css" />
     <link rel="stylesheet" href="./home.css" />
-    <script src="https://unpkg.com/lenis@1.3.23/dist/lenis.min.js"></script>
-    <script
+    <script>
+      if (!new URLSearchParams(location.search).has("screenshot")) {
+        document.write(
+          '<script src="https://unpkg.com/lenis@1.3.23/dist/lenis.min.js"><\/script>',
+        );
+      }
+    </script>
+    <!-- <script
       src="https://challenges.cloudflare.com/turnstile/v0/api.js"
       async
       defer
-    ></script>
+    ></script> -->
   </head>
 
   <body>
     <header class="site-nav site-nav--page" id="site-nav">
       <div class="site-nav__inner">
-        <a href="#" class="site-nav__logo">
+        <a href="home.html" class="site-nav__logo">
           <span class="site-nav__logo-wordmark">PolAccount</span>
         </a>
         <nav class="site-nav__links" id="nav-links">
-          <button type="button" class="site-nav__close" id="nav-close" aria-label="Zamknij menu">
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path d="M1 1L17 17M17 1L1 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <button
+            type="button"
+            class="site-nav__close"
+            id="nav-close"
+            aria-label="Zamknij menu"
+          >
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 18 18"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <path
+                d="M1 1L17 17M17 1L1 17"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+              />
             </svg>
           </button>
-          <a href="#" class="site-nav__link site-nav__link--active">Usługi</a>
+          <a href="#" class="site-nav__link">Usługi</a>
           <a href="#" class="site-nav__link">O nas</a>
-          <a href="./blog-index.html" class="site-nav__link">Blog</a>
-          <a href="#" class="site-nav__link">Kontakt</a>
+          <a href="blog-index.html" class="site-nav__link">Blog</a>
+          <a href="contact.html" class="site-nav__link">Kontakt</a>
           <a href="#" class="btn btn--ghost-inv site-nav__cta"
             >Umów konsultację</a
           >
@@ -53,9 +131,9 @@
         <div class="hero-content">
           <div class="hero-text">
             <p class="hero-eyebrow">
-              Autoryzowany agent HMRC<br>ponad 20 lat na rynku UK
+              Autoryzowany agent HMRC<br />ponad 20 lat na rynku UK
             </p>
-            <h1 class="hero-headline eb-garamond-mine">
+            <h1 class="hero-headline">
               Twój biznes na rynku brytyjskim.<br />
               Bez ryzyka. Bez chaosu.
             </h1>
@@ -177,7 +255,9 @@
           <div class="section__split section__split--reverse">
             <div class="section__split-main">
               <p class="section__eyebrow">O nas</p>
-              <h2 class="section__headline">Dwadzie&#347;cia lat w UK. Jeden partner, pe&#322;ny zakres.</h2>
+              <h2 class="section__headline">
+                Dwadzie&#347;cia lat w UK. Jeden partner, pe&#322;ny zakres.
+              </h2>
               <p class="section__body">
                 Zaczęliśmy pomagać polskim firmom wchodzić na rynek brytyjski,
                 gdy większość z nich dopiero rozważała tę opcję. Od ponad 20 lat
@@ -195,10 +275,31 @@
             </div>
             <div class="section__image">
               <picture>
-                <source media="(min-width: 768px)" srcset="./assets/images/vitaly-gariev-biciz2eSkiA-unsplash-desktop.webp" type="image/webp" />
-                <source media="(min-width: 768px)" srcset="./assets/images/vitaly-gariev-biciz2eSkiA-unsplash-desktop.jpg" type="image/jpeg" />
-                <source srcset="./assets/images/vitaly-gariev-biciz2eSkiA-unsplash-mobile.webp" type="image/webp" />
-                <img src="./assets/images/vitaly-gariev-biciz2eSkiA-unsplash-mobile.jpg" alt="" class="section__img" />
+                <source
+                  media="(min-width: 768px)"
+                  srcset="
+                    ./assets/images/vitaly-gariev-biciz2eSkiA-unsplash-desktop.webp
+                  "
+                  type="image/webp"
+                />
+                <source
+                  media="(min-width: 768px)"
+                  srcset="
+                    ./assets/images/vitaly-gariev-biciz2eSkiA-unsplash-desktop.jpg
+                  "
+                  type="image/jpeg"
+                />
+                <source
+                  srcset="
+                    ./assets/images/vitaly-gariev-biciz2eSkiA-unsplash-mobile.webp
+                  "
+                  type="image/webp"
+                />
+                <img
+                  src="./assets/images/vitaly-gariev-biciz2eSkiA-unsplash-mobile.jpg"
+                  alt=""
+                  class="section__img"
+                />
               </picture>
             </div>
           </div>
@@ -327,28 +428,54 @@
         <div class="section__inner">
           <div class="section__header">
             <p class="section__eyebrow">Opinie klientów</p>
-            <h2 class="section__headline">Pracujemy z nimi od lat. Oni mówią, dlaczego zostają.</h2>
+            <h2 class="section__headline">
+              Pracujemy z nimi od lat. Oni mówią, dlaczego zostają.
+            </h2>
           </div>
           <div class="testimonials__grid">
             <blockquote class="testimonial">
-              <p class="testimonial__quote">Z firmą PolAccount współpracujemy od 2008 roku. Na początku biuro zajęło się naszą działalnością Self-employed. Zawsze mogliśmy liczyć na terminowe załatwienie naszych spraw i profesjonalne doradztwo. Dziś PolAccount dba o naszą firmę LTD i nasze finanse. Wiemy, że dzięki nim wszystko jest na właściwej drodze - a my możemy się skupić na działalności firmy i pozyskiwaniu nowych klientów.</p>
+              <p class="testimonial__quote">
+                Z firmą PolAccount współpracujemy od 2008 roku. Na początku
+                biuro zajęło się naszą działalnością Self-employed. Zawsze
+                mogliśmy liczyć na terminowe załatwienie naszych spraw i
+                profesjonalne doradztwo. Dziś PolAccount dba o naszą firmę LTD i
+                nasze finanse. Wiemy, że dzięki nim wszystko jest na właściwej
+                drodze - a my możemy się skupić na działalności firmy i
+                pozyskiwaniu nowych klientów.
+              </p>
               <footer class="testimonial__footer">
                 <span class="testimonial__name">Britanniaweb LTD</span>
                 <span class="testimonial__duration">Klient od 2008 roku</span>
               </footer>
             </blockquote>
             <blockquote class="testimonial">
-              <p class="testimonial__quote">Współpracowałem z biurem PolAccount 9 lat w czasie, gdy prowadziłem Polski Sklep w Londynie. Jestem bardzo zadowolony - wszystkie rozliczenia, VAT, PAYE, podatki, dokumenty zawsze były dopięte na ostatni guzik. Nigdy nie musiałem o nic się martwić, zawsze przypominają o terminach. Bardzo dobry kontakt z klientem.</p>
+              <p class="testimonial__quote">
+                Współpracowałem z biurem PolAccount 9 lat w czasie, gdy
+                prowadziłem Polski Sklep w Londynie. Jestem bardzo zadowolony -
+                wszystkie rozliczenia, VAT, PAYE, podatki, dokumenty zawsze były
+                dopięte na ostatni guzik. Nigdy nie musiałem o nic się martwić,
+                zawsze przypominają o terminach. Bardzo dobry kontakt z
+                klientem.
+              </p>
               <footer class="testimonial__footer">
                 <span class="testimonial__name">Bajka LTD</span>
                 <span class="testimonial__duration">Klient od 9 lat</span>
               </footer>
             </blockquote>
             <blockquote class="testimonial">
-              <p class="testimonial__quote">Pragniemy wyrazić podziękowania dla Biura Rachunkowego PolAccount, z którym współpracujemy od niespełna 6 lat. Jesteśmy pełni uznania dla bardzo wysokiej jakości oferowanych usług, terminowości i fachowości. Biuro PolAccount nigdy nie zawiodło naszego zaufania - dlatego z czystym sumieniem polecamy je każdemu, kto chce mieć porządek w dokumentacji firmowej.</p>
+              <p class="testimonial__quote">
+                Pragniemy wyrazić podziękowania dla Biura Rachunkowego
+                PolAccount, z którym współpracujemy od niespełna 6 lat. Jesteśmy
+                pełni uznania dla bardzo wysokiej jakości oferowanych usług,
+                terminowości i fachowości. Biuro PolAccount nigdy nie zawiodło
+                naszego zaufania - dlatego z czystym sumieniem polecamy je
+                każdemu, kto chce mieć porządek w dokumentacji firmowej.
+              </p>
               <footer class="testimonial__footer">
                 <span class="testimonial__name">Mirosław Herman</span>
-                <span class="testimonial__duration">MTM Herman - klient od 6 lat</span>
+                <span class="testimonial__duration"
+                  >MTM Herman - klient od 6 lat</span
+                >
               </footer>
             </blockquote>
           </div>
@@ -409,7 +536,9 @@
         <div class="section__inner">
           <div class="section__header">
             <p class="section__eyebrow">Cennik</p>
-            <h2 class="section__headline">Przejrzyste ceny. Bez ukrytych kosztów.</h2>
+            <h2 class="section__headline">
+              Przejrzyste ceny. Bez ukrytych kosztów.
+            </h2>
             <p class="section__body">
               Stała miesięczna opłata - wiesz za co płacisz i ile to kosztuje,
               zanim podpiszesz umowę.
@@ -458,7 +587,10 @@
               </ul>
             </div>
           </div>
-          <p class="pricing__note">Dokładna wycena zależy od zakresu usług i wielkości firmy. Skontaktuj się - podamy konkretną kwotę na pierwszej rozmowie.</p>
+          <p class="pricing__note">
+            Dokładna wycena zależy od zakresu usług i wielkości firmy.
+            Skontaktuj się - podamy konkretną kwotę na pierwszej rozmowie.
+          </p>
         </div>
       </section>
 
@@ -540,8 +672,8 @@
           <ul class="site-footer__links">
             <li><a href="#">Usługi</a></li>
             <li><a href="#">O nas</a></li>
-            <li><a href="#">Blog</a></li>
-            <li><a href="#">Kontakt</a></li>
+            <li><a href="blog-index.html">Blog</a></li>
+            <li><a href="contact.html">Kontakt</a></li>
             <li><a href="#">Polityka prywatności</a></li>
           </ul>
         </div>
@@ -549,9 +681,9 @@
           <p class="site-footer__col-heading">Kontakt</p>
           <ul class="site-footer__contact">
             <li>
-              <a href="mailto:biuro@polaccount.pl">biuro@polaccount.pl</a>
+              <a href="mailto:info@polaccount.com">info@polaccount.com</a>
             </li>
-            <li><a href="tel:+48000000000">+48 000 000 000</a></li>
+            <li><a href="tel:02087672796">0208 767 27 96</a></li>
             <li><a href="#">WhatsApp</a></li>
             <li><a href="#">LinkedIn</a></li>
           </ul>
@@ -559,21 +691,21 @@
         <div class="site-footer__col">
           <p class="site-footer__col-heading">Biura</p>
           <address class="site-footer__address">
-            <p class="site-footer__address-label">Warszawa</p>
-            ul. Przykładowa 1<br />
-            00-000 Warszawa<br />
-            Polska
+            <p class="site-footer__address-label">Tooting Broadway</p>
+            184 Mitcham Road<br />
+            London SW17 9NJ<br />
+            United Kingdom
           </address>
           <address class="site-footer__address">
-            <p class="site-footer__address-label">Londyn</p>
-            1 Example Street<br />
-            London EC1A 1BB<br />
+            <p class="site-footer__address-label">Norbury</p>
+            1528 London Road<br />
+            London SW16 4EU<br />
             United Kingdom
           </address>
         </div>
       </div>
       <div class="site-footer__bar">
-        <span>© 2026 PolAccount | Registered in Poland | VAT PL [number]</span>
+        <span>© 2026 PolAccount | Registered in England and Wales</span>
       </div>
     </footer>
 
@@ -595,49 +727,65 @@
 
         function tryLoad(src, fallbackSrc) {
           var img = new Image();
-          img.onload = function () { reveal(src); };
-          img.onerror = function () { if (fallbackSrc) reveal(fallbackSrc); };
+          img.onload = function () {
+            reveal(src);
+          };
+          img.onerror = function () {
+            if (fallbackSrc) reveal(fallbackSrc);
+          };
           img.src = src;
         }
 
         if (isMobile) {
-          tryLoad("assets/images/hero-bg-mobile.webp", "assets/images/hero-bg-mobile.jpg");
+          tryLoad(
+            "assets/images/hero-bg-mobile.webp",
+            "assets/images/hero-bg-mobile.jpg",
+          );
         } else {
           tryLoad("assets/images/hero-bg.webp", "assets/images/hero-bg.jpg");
         }
       })();
 
-      const lenis = new Lenis();
-      const headline = document.querySelector(".hero-headline");
+      let lenis = null;
 
-      lenis.on("scroll", ({ scroll }) => {
-        const hero = document.querySelector(".hero-bg");
-        const heroHeight = hero.offsetHeight;
+      if (typeof Lenis !== "undefined") {
+        lenis = new Lenis();
+        const headline = document.querySelector(".hero-headline");
 
-        // 0 at scroll top, 1 when hero exits viewport
-        const progress = Math.min(Math.max(scroll / heroHeight, 0), 1);
+        lenis.on("scroll", ({ scroll }) => {
+          const hero = document.querySelector(".hero-bg");
+          const heroHeight = hero.offsetHeight;
 
-        const lx = progress * 2 - 1; // -1 -> +1
-        const ly = progress * 2 - 1; // -1 -> +1
+          const progress = Math.min(Math.max(scroll / heroHeight, 0), 1);
 
-        headline.style.setProperty("--lx", lx.toFixed(3));
-        headline.style.setProperty("--ly", ly.toFixed(3));
-      });
+          const lx = progress * 2 - 1;
+          const ly = progress * 2 - 1;
 
-      function raf(time) {
-        lenis.raf(time);
+          headline.style.setProperty("--lx", lx.toFixed(3));
+          headline.style.setProperty("--ly", ly.toFixed(3));
+        });
+
+        function raf(time) {
+          lenis.raf(time);
+          requestAnimationFrame(raf);
+        }
         requestAnimationFrame(raf);
       }
-      requestAnimationFrame(raf);
 
       const nav = document.getElementById("site-nav");
       const hamburger = document.getElementById("nav-hamburger");
       const navClose = document.getElementById("nav-close");
       const navLinks = document.getElementById("nav-links");
 
-      lenis.on("scroll", ({ scroll }) => {
-        nav.classList.toggle("site-nav--solid", scroll > 40);
-      });
+      if (lenis) {
+        lenis.on("scroll", ({ scroll }) => {
+          nav.classList.toggle("site-nav--solid", scroll > 40);
+        });
+      } else {
+        window.addEventListener("scroll", () => {
+          nav.classList.toggle("site-nav--solid", window.scrollY > 40);
+        });
+      }
 
       function openNav() {
         navLinks.classList.add("site-nav__links--open");
@@ -651,6 +799,15 @@
 
       hamburger.addEventListener("click", openNav);
       navClose.addEventListener("click", closeNav);
+
+      function markReady() {
+        document.body.classList.add("page-ready");
+      }
+      Promise.all([
+        document.fonts.load("400 1em 'EB Garamond'"),
+        document.fonts.load("400 1em 'Inter'"),
+      ]).then(markReady);
+      window.addEventListener("load", markReady);
 
       (function () {
         const track = document.querySelector(".proof-slot__track");

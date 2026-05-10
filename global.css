@@ -14,25 +14,25 @@
   --font-body: "Inter", sans-serif;
 
   /* Type scale */
-  --text-xs:           12px;
-  --text-sm:           13px;
-  --text-base:         14px;
-  --text-md:           15px;
-  --text-fluid-body:   clamp(15px, 1.1vw, 17px);
-  --text-fluid-sub:    clamp(18px, 1.5vw, 24px);
-  --text-fluid-heading:clamp(28px, 3vw, 48px);
-  --text-fluid-hero:   clamp(36px, 4.5vw, 72px);
-  --text-fluid-display:clamp(72px, 8vw, 128px);
+  --text-xs: 12px;
+  --text-sm: 13px;
+  --text-base: 14px;
+  --text-md: 15px;
+  --text-fluid-body: clamp(15px, 1.1vw, 17px);
+  --text-fluid-sub: clamp(18px, 1.5vw, 24px);
+  --text-fluid-heading: clamp(28px, 3vw, 48px);
+  --text-fluid-hero: clamp(30px, calc(5.13vw - 9.8px), 72px);
+  --text-fluid-display: clamp(72px, 8vw, 128px);
 
   /* Layout */
-  --nav-height:   75px;
-  --gap:          24px;
-  --slide-pad-x:  calc(var(--gap) * 3);
-  --slide-pad-y:  calc(var(--gap) * 2);
+  --nav-height: 75px;
+  --gap: 24px;
+  --slide-pad-x: calc(var(--gap) * 3);
+  --slide-pad-y: calc(var(--gap) * 2);
 
   /* Component */
   --border-width: 3px;
-  --cards-gap:    3px;
+  --cards-gap: 3px;
 }
 
 /* ---- RESET ---- */
@@ -63,7 +63,10 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
-  font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+  font-feature-settings:
+    "kern" 1,
+    "liga" 1,
+    "calt" 1;
 }
 
 main {

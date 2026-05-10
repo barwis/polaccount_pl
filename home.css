@@ -20,7 +20,8 @@
 .hero-bg__img {
   position: absolute;
   inset: 0;
-  background: url("assets/images/hero-bg-mobile.webp") right center / cover no-repeat;
+  background: url("assets/images/hero-bg-mobile.webp") right center / cover
+    no-repeat;
   opacity: 0;
   transition: opacity 0.6s ease;
   z-index: 0;
@@ -40,7 +41,6 @@
     background-position: left center;
   }
 }
-
 
 /* Teal tint */
 .hero-bg::before {
@@ -64,10 +64,10 @@
   z-index: 1;
   background: linear-gradient(
     to top,
-    oklch(from var(--slate-dark) l c h / 1)   0%,
+    oklch(from var(--slate-dark) l c h / 1) 0%,
     oklch(from var(--slate-dark) l c h / 0.8) 35%,
     oklch(from var(--slate-dark) l c h / 0.2) 70%,
-    oklch(from var(--slate-dark) l c h / 0)   100%
+    oklch(from var(--slate-dark) l c h / 0) 100%
   );
   pointer-events: none;
 }
@@ -143,6 +143,7 @@
   line-height: 1.08;
   color: var(--gold-base);
   margin: 0;
+  white-space: nowrap;
 
   /* Light-tracking gradient — driven by JS --lx / --ly */
   --lx: 0;
@@ -172,7 +173,6 @@
     linear-gradient(var(--gold-base), var(--gold-base));
 }
 
-
 .hero-sub {
   font-family: var(--font-body);
   font-weight: 400;
@@ -196,4 +196,71 @@
   .services .section__inner {
     padding-top: 0 !important;
   }
+}
+
+/* ============================================================
+   PAGE INTRO TRANSITION
+   Staggered fade-up on hero + proof-bar elements.
+   Elements start hidden; JS adds .page-ready to <body>
+   once window load fires, triggering each animation.
+   Also prevents the font-swap 3-line flash: hero-headline
+   stays invisible until EB Garamond is loaded.
+   ============================================================ */
+
+:root {
+  --timing-function: cubic-bezier(0.17, 0.67, 0.36, 1);
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-eyebrow,
+.hero-headline,
+.hero-sub,
+.hero-actions,
+.proof-bar__inner,
+.proof-slot {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-eyebrow,
+  .hero-headline,
+  .hero-sub,
+  .hero-actions,
+  .proof-bar__inner,
+  .proof-slot {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+body.page-ready .hero-eyebrow {
+  animation: fadeUp 0.6s var(--timing-function) 0.1s both;
+}
+
+body.page-ready .hero-headline {
+  animation: fadeUp 0.7s var(--timing-function) 0.25s both;
+}
+
+body.page-ready .hero-sub {
+  animation: fadeUp 0.7s var(--timing-function) 0.45s both;
+}
+
+body.page-ready .hero-actions {
+  animation: fadeUp 0.6s var(--timing-function) 0.65s both;
+}
+
+body.page-ready .proof-bar__inner,
+body.page-ready .proof-slot {
+  animation: fadeUp 0.6s var(--timing-function) 0.85s both;
 }
