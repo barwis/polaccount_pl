@@ -1,0 +1,534 @@
+/* ============================================================
+   CONTACT.CSS
+   Page-specific styles for contact.html
+   ============================================================ */
+
+/* ============================================================
+   MAP
+   ============================================================ */
+
+.contact-map {
+  line-height: 0;
+  overflow: hidden;
+  height: calc(360px - 59px);
+}
+
+.contact-map iframe {
+  display: block;
+  width: 100%;
+  height: 360px;
+  border: none;
+  margin-top: -59px;
+}
+
+@media (min-width: 768px) {
+  .contact-map {
+    height: calc(480px - 59px);
+  }
+
+  .contact-map iframe {
+    height: 480px;
+  }
+}
+
+/* Leaflet map - activate when moving to WP
+#contact-map {
+  width: 100%;
+  height: 360px;
+}
+
+@media (min-width: 768px) {
+  #contact-map {
+    height: 480px;
+  }
+}
+*/
+
+/* Custom marker */
+.map-marker {
+  background: none;
+  border: none;
+}
+
+.map-marker svg {
+  width: 32px;
+  height: 42px;
+  fill: var(--teal-primary);
+  filter: drop-shadow(0 2px 4px oklch(from var(--slate-dark) l c h / 0.3));
+}
+
+/* Override Leaflet default popup chrome */
+.map-popup-wrapper .leaflet-popup-content-wrapper {
+  border-radius: 0;
+  padding: 0;
+  box-shadow: 0 4px 24px oklch(from var(--slate-dark) l c h / 0.15);
+  border-top: 3px solid var(--teal-primary);
+}
+
+.map-popup-wrapper .leaflet-popup-content {
+  margin: 0;
+  width: 280px !important;
+}
+
+.map-popup-wrapper .leaflet-popup-tip {
+  background: var(--white);
+}
+
+/* Popup content */
+.map-popup {
+  padding: 20px;
+  font-family: "Inter", sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.map-popup__loading,
+.map-popup__error {
+  padding: 20px;
+  font-family: "Inter", sans-serif;
+  font-size: var(--text-sm);
+  color: var(--slate-mid);
+}
+
+.map-popup__name {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--teal-primary);
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.map-popup__rating {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.map-popup__stars {
+  color: var(--gold-base);
+  font-size: var(--text-base);
+  letter-spacing: 1px;
+}
+
+.map-popup__rating-score {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--slate-dark);
+}
+
+.map-popup__rating-count {
+  font-size: var(--text-xs);
+  color: var(--slate-mid);
+}
+
+.map-popup__status {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.map-popup__status--open {
+  color: var(--teal-secondary);
+}
+
+.map-popup__status--closed {
+  color: oklch(from var(--error-500) calc(l - 0.1) c h);
+}
+
+.map-popup__phone {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--slate-dark);
+  text-decoration: none;
+  display: block;
+}
+
+.map-popup__reviews {
+  list-style: none;
+  margin: 4px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-top: 1px solid var(--slate-200);
+  padding-top: 10px;
+}
+
+.map-popup__review {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.map-popup__review-stars {
+  font-size: var(--text-xs);
+  color: var(--gold-base);
+  letter-spacing: 1px;
+}
+
+.map-popup__review-author {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--slate-dark);
+}
+
+.map-popup__review-text {
+  font-size: var(--text-xs);
+  color: var(--slate-mid);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.map-popup__directions {
+  display: inline-block;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--teal-secondary);
+  text-decoration: none;
+  margin-top: 4px;
+  border-top: 1px solid var(--slate-200);
+  padding-top: 10px;
+}
+
+.map-popup__directions:hover {
+  color: var(--teal-primary);
+}
+
+/* ============================================================
+   MAIN LAYOUT (offices + form)
+   ============================================================ */
+
+.contact-main {
+  padding-top: calc(var(--gap) * 3);
+  padding-bottom: calc(var(--gap) * 3);
+}
+
+.contact-main__inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: calc(var(--gap) * 2);
+  align-items: start;
+}
+
+@media (min-width: 1024px) {
+  .contact-main__inner {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.contact-offices-col {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: calc(var(--gap) * 2);
+}
+
+@media (min-width: 640px) {
+  .contact-offices-col {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .contact-main__intro {
+    grid-column: 1 / -1;
+  }
+}
+
+.contact-main__intro {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--gap) / 2);
+  padding-bottom: calc(var(--gap) * 2);
+  border-bottom: 1px solid;
+}
+
+.contact-main__heading {
+  font-family: var(--font-heading);
+  font-size: var(--text-fluid-sub);
+  font-weight: 500;
+  margin: 0;
+}
+
+.contact-main__lead {
+  font-size: var(--text-fluid-body);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.contact-office {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+}
+
+.contact-office__name {
+  font-family: var(--font-heading);
+  font-size: var(--text-fluid-sub);
+  font-weight: 500;
+  margin: 0;
+  padding-bottom: calc(var(--gap) / 2);
+}
+
+.contact-office__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-office__item {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.contact-office__icon {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 11px;
+  box-sizing: border-box;
+}
+
+.contact-office__icon svg {
+  width: 100%;
+  height: auto;
+}
+
+.contact-office__address {
+  font-style: normal;
+  font-size: var(--text-fluid-body);
+  line-height: 1.6;
+  padding-top: 10px;
+}
+
+.contact-office__tel {
+  display: block;
+  font-size: var(--text-fluid-body);
+  text-decoration: none;
+  padding-top: 10px;
+  line-height: 1.8;
+}
+
+.contact-office__email {
+  font-size: var(--text-fluid-body);
+  text-decoration: none;
+  padding-top: 10px;
+  display: block;
+}
+
+/* ============================================================
+   CONTACT FORM COLUMN
+   ============================================================ */
+
+.contact-form-col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+}
+
+.contact-form-col__heading {
+  font-family: var(--font-heading);
+  font-size: var(--text-fluid-sub);
+  font-weight: 400;
+  margin: 0;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+}
+
+.contact-form .btn {
+  width: fit-content;
+}
+
+@media (min-width: 1024px) {
+  .contact-form-col {
+    border-left: var(--border-width) solid;
+    padding-left: calc(var(--gap) * 2);
+  }
+}
+
+/* ============================================================
+   SECTION THEME: LIGHT
+   ============================================================ */
+
+.section--light .contact-main__intro {
+  border-color: var(--slate-200);
+}
+
+.section--light .contact-main__heading {
+  color: var(--slate-dark);
+}
+
+.section--light .contact-main__lead {
+  color: var(--slate-mid);
+}
+
+.section--light .contact-form-col__heading {
+  color: var(--slate-dark);
+}
+
+.section--light .contact-form-col {
+  border-color: var(--slate-200);
+}
+
+.section--light .contact-office__name {
+  color: var(--teal-primary);
+  border-bottom: 2px solid var(--gold-base);
+}
+
+.section--light .contact-office__icon {
+  background: var(--teal-primary);
+}
+
+.section--light .contact-office__icon svg {
+  fill: var(--white);
+}
+
+.section--light .contact-office__address {
+  color: var(--slate-dark);
+}
+
+.section--light .contact-office__tel {
+  color: var(--slate-dark);
+}
+
+.section--light .contact-office__tel:hover {
+  color: var(--teal-primary);
+}
+
+.section--light .contact-office__email {
+  color: var(--slate-dark);
+}
+
+.section--light .contact-office__email:hover {
+  color: var(--teal-primary);
+}
+
+/* ============================================================
+   SECTION THEME: DARK
+   ============================================================ */
+
+.section--dark .contact-main__intro {
+  border-color: oklch(from var(--white) l c h / 0.1);
+}
+
+.section--dark .contact-main__heading {
+  color: var(--white);
+}
+
+.section--dark .contact-main__lead {
+  color: var(--slate-300);
+}
+
+.section--dark .contact-form-col__heading {
+  color: var(--white);
+}
+
+.section--dark .contact-form-col {
+  border-color: oklch(from var(--white) l c h / 0.1);
+}
+
+.section--dark .contact-office__name {
+  color: var(--gold-base);
+  border-bottom: 2px solid oklch(from var(--gold-base) l c h / 0.3);
+}
+
+.section--dark .contact-office__icon {
+  background: oklch(from var(--white) l c h / 0.08);
+}
+
+.section--dark .contact-office__icon svg {
+  fill: var(--white);
+}
+
+.section--dark .contact-office__address {
+  color: var(--slate-300);
+}
+
+.section--dark .contact-office__tel {
+  color: var(--slate-300);
+}
+
+.section--dark .contact-office__tel:hover {
+  color: var(--white);
+}
+
+.section--dark .contact-office__email {
+  color: var(--slate-300);
+}
+
+.section--dark .contact-office__email:hover {
+  color: var(--white);
+}
+
+/* ============================================================
+   SECTION THEME: TEAL
+   ============================================================ */
+
+.section--teal .contact-main__intro {
+  border-color: oklch(from var(--white) l c h / 0.2);
+}
+
+.section--teal .contact-main__heading {
+  color: var(--white);
+}
+
+.section--teal .contact-main__lead {
+  color: oklch(from var(--white) l c h / 0.75);
+}
+
+.section--teal .contact-form-col__heading {
+  color: var(--white);
+}
+
+.section--teal .contact-form-col {
+  border-color: oklch(from var(--white) l c h / 0.2);
+}
+
+.section--teal .contact-office__name {
+  color: var(--white);
+  border-bottom: 2px solid oklch(from var(--white) l c h / 0.25);
+}
+
+.section--teal .contact-office__icon {
+  background: oklch(from var(--white) l c h / 0.12);
+}
+
+.section--teal .contact-office__icon svg {
+  fill: var(--white);
+}
+
+.section--teal .contact-office__address {
+  color: oklch(from var(--white) l c h / 0.85);
+}
+
+.section--teal .contact-office__tel {
+  color: oklch(from var(--white) l c h / 0.85);
+}
+
+.section--teal .contact-office__tel:hover {
+  color: var(--white);
+}
+
+.section--teal .contact-office__email {
+  color: oklch(from var(--white) l c h / 0.85);
+}
+
+.section--teal .contact-office__email:hover {
+  color: var(--white);
+}

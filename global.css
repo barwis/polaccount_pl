@@ -26,8 +26,9 @@
 
   /* Layout */
   --nav-height:   75px;
-  --slide-pad-x:  72px;
-  --slide-pad-y:  40px;
+  --gap:          24px;
+  --slide-pad-x:  calc(var(--gap) * 3);
+  --slide-pad-y:  calc(var(--gap) * 2);
 
   /* Component */
   --border-width: 3px;
@@ -45,7 +46,7 @@
 
 /* ---- BASE ---- */
 html {
-  scroll-padding-top: calc(var(--nav-height) + 24px);
+  scroll-padding-top: calc(var(--nav-height) + var(--gap));
   /* nav-height offset needed because nav is fixed and body padding-top compensates for initial layout only */
   scroll-behavior: smooth;
 }
