@@ -20,6 +20,7 @@
   --text-md: 15px;
   --text-fluid-body: clamp(15px, 1.1vw, 17px);
   --text-fluid-sub: clamp(18px, 1.5vw, 24px);
+  --text-fluid-subheading: clamp(22px, 2vw, 34px);
   --text-fluid-heading: clamp(28px, 3vw, 48px);
   --text-fluid-hero: clamp(30px, calc(5.13vw - 9.8px), 72px);
   --text-fluid-display: clamp(72px, 8vw, 128px);
@@ -33,6 +34,11 @@
   /* Component */
   --border-width: 3px;
   --cards-gap: 3px;
+
+  /* Transitions */
+  --transition-fast: 0.3s ease;
+  --transition-base: 0.2s ease;
+  --transition-slow: 0.4s ease;
 }
 
 /* ---- RESET ---- */

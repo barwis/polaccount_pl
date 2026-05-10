@@ -1,0 +1,100 @@
+/* ============================================================
+   PAGE.CSS
+   Standard content page with sidebar.
+   Requires global.css, ui.css, palette.css.
+   ============================================================ */
+
+
+/* ============================================================
+   LAYOUT
+   ============================================================ */
+
+.page-content__body {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--gap);
+  align-items: start;
+}
+
+@media (min-width: 1024px) {
+  .page-content__body {
+    grid-template-columns: 1fr 300px;
+    gap: calc(var(--gap) * 2);
+  }
+}
+
+
+/* ============================================================
+   ARTICLE
+   ============================================================ */
+
+.page-article {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--gap) * 1.5);
+}
+
+@media (min-width: 768px) {
+  .page-article {
+    gap: calc(var(--gap) * 2);
+  }
+}
+
+.page-article__image {
+  width: 100%;
+  aspect-ratio: 16 / 7;
+  overflow: hidden;
+  background: var(--slate-100);
+}
+
+.page-article__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.page-article__footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap);
+  padding-top: calc(var(--gap) * 1.5);
+  border-top: 1px solid var(--border);
+}
+
+
+/* ============================================================
+   SIDEBAR - HOURS WIDGET
+   ============================================================ */
+
+.sidebar-hours {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.sidebar-hours__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+}
+
+.sidebar-hours__item:last-child {
+  border-bottom: none;
+}
+
+.sidebar-hours__day {
+  color: var(--slate-600);
+  font-weight: 500;
+}
+
+.sidebar-hours__time {
+  color: var(--slate-400);
+}

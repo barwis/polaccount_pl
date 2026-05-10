@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="google" content="notranslate" />
     <title>WordPress Templates - PolAccount</title>
     <meta property="og:title" content="WordPress Templates - PolAccount" />
     <meta
@@ -21,6 +22,24 @@
       rel="stylesheet"
     />
     <style>
+      @font-face {
+        font-family: "EB Garamond";
+        src: local("Georgia");
+        size-adjust: 85%;
+        descent-override: 10%;
+        font-display: block;
+      }
+      @font-face {
+        font-family: "Inter";
+        src: local("Arial");
+        font-display: block;
+        ascent-override: 10%;
+      }
+      :root {
+        --font-heading: "EB Garamond", serif;
+        --font-body: "Inter", sans-serif;
+      }
+
       *,
       *::before,
       *::after {
@@ -92,6 +111,7 @@
         text-decoration: none;
         background: #111e20;
         border-top: 3px solid #00514a;
+        color: var(--slate-100);
         transition:
           border-color 0.15s,
           background 0.15s;
@@ -181,13 +201,28 @@
         background: #1e2a2c;
         color: #3d6366;
       }
+
+      a:not([class]) {
+        color: #017865;
+        text-decoration: underline;
+        text-decoration-color: rgba(1, 120, 101, 0.35);
+        text-underline-offset: 2px;
+        transition:
+          color 0.15s,
+          text-decoration-color 0.15s;
+      }
+
+      a:not([class]):hover {
+        color: #00514a;
+        text-decoration-color: rgba(0, 81, 74, 0.6);
+      }
     </style>
   </head>
   <body>
     <div class="page-header">
       <p class="page-header__label">polaccount - WordPress theme</p>
       <h1 class="page-header__title">Template index</h1>
-      <p class="page-header__meta">v0.3.0 - 10 May 2025</p>
+      <p class="page-header__meta">v0.4.0 - 10 May 2025</p>
     </div>
 
     <p class="section-heading">polaccount.pl</p>
@@ -321,9 +356,13 @@
         </div>
       </a>
 
-      <a class="template-card" href="#">
+      <a class="template-card" href="./parent-page.html">
         <div class="template-card__thumb">
-          <span class="template-card__thumb-placeholder">Image coming</span>
+          <img
+            src="./assets/images/parent-page_thumb.webp"
+            alt="Parent page template preview"
+            loading="lazy"
+          />
         </div>
         <div class="template-card__body">
           <span class="template-card__name">Parent page</span>
@@ -332,16 +371,20 @@
             title, excerpt, read more.</span
           >
           <div class="template-card__meta">
-            <span class="template-card__status template-card__status--planned"
-              >Planned</span
+            <span class="template-card__status template-card__status--done"
+              >Done</span
             >
           </div>
         </div>
       </a>
 
-      <a class="template-card" href="#">
+      <a class="template-card" href="./page.html">
         <div class="template-card__thumb">
-          <span class="template-card__thumb-placeholder">Image coming</span>
+          <img
+            src="./assets/images/page_thumb.webp"
+            alt="Page template preview"
+            loading="lazy"
+          />
         </div>
         <div class="template-card__body">
           <span class="template-card__name">Page</span>
@@ -349,8 +392,8 @@
             >Standard content page with sidebar.</span
           >
           <div class="template-card__meta">
-            <span class="template-card__status template-card__status--planned"
-              >Planned</span
+            <span class="template-card__status template-card__status--done"
+              >Done</span
             >
           </div>
         </div>

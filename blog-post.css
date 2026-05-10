@@ -3,7 +3,6 @@
    Page-specific styles for blog-post.html
    ============================================================ */
 
-
 /* ============================================================
    BLOG POST LAYOUT
    ============================================================ */
@@ -24,7 +23,6 @@
 }
 
 /* Related posts: no overrides needed - section--dark handles its own padding */
-
 
 /* ============================================================
    ARTICLE
@@ -61,7 +59,6 @@
   object-fit: cover;
   display: block;
 }
-
 
 /* ============================================================
    POST META
@@ -106,7 +103,6 @@
   color: var(--slate-400);
   margin-left: auto;
 }
-
 
 /* ============================================================
    SUMMARY BOX
@@ -155,7 +151,6 @@
   color: var(--gold-base);
   font-weight: 600;
 }
-
 
 /* ============================================================
    TABLE OF CONTENTS
@@ -223,107 +218,6 @@
   color: var(--teal-primary);
 }
 
-
-/* ============================================================
-   POST BODY TYPOGRAPHY
-   ============================================================ */
-
-.post-article__content {
-  font-family: var(--font-body);
-  font-size: var(--text-fluid-body);
-  line-height: 1.75;
-  color: var(--slate-600);
-}
-
-.post-article__content p {
-  margin: 0 0 20px;
-}
-
-.post-article__content p:last-child {
-  margin-bottom: 0;
-}
-
-.post-article__content h2 {
-  font-family: var(--font-heading);
-  font-weight: 400;
-  font-size: var(--text-fluid-sub);
-  letter-spacing: -0.02em;
-  line-height: 1.15;
-  color: var(--slate-dark);
-  margin: 40px 0 16px;
-}
-
-.post-article__content h3 {
-  font-family: var(--font-heading);
-  font-weight: 400;
-  font-size: var(--text-fluid-body);
-  letter-spacing: -0.01em;
-  line-height: 1.2;
-  color: var(--slate-dark);
-  margin: 32px 0 12px;
-}
-
-.post-article__content h2:first-child,
-.post-article__content h3:first-child {
-  margin-top: 0;
-}
-
-.post-article__content strong {
-  font-weight: 600;
-  color: var(--slate-700);
-}
-
-.post-article__content ul,
-.post-article__content ol {
-  margin: 0 0 20px;
-  padding-left: 0;
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.post-article__content ul li,
-.post-article__content ol li {
-  padding-left: 20px;
-  position: relative;
-}
-
-.post-article__content ul li::before {
-  content: "-";
-  position: absolute;
-  left: 0;
-  color: var(--teal-secondary);
-  font-weight: 600;
-}
-
-.post-article__content ul {
-  padding-left: 20px;
-}
-
-.post-article__content ol {
-  counter-reset: post-ol;
-  padding-left: 20px;
-}
-
-.post-article__content ol li {
-  counter-increment: post-ol;
-  padding-left: 0;
-  display: grid;
-  grid-template-columns: 20px 1fr;
-  gap: 0 4px;
-}
-
-.post-article__content ol li::before {
-  content: counter(post-ol) ".";
-  color: var(--teal-secondary);
-  font-weight: 600;
-  font-size: inherit;
-  line-height: inherit;
-  padding-top: 0;
-}
-
-
 /* ============================================================
    BLOCKQUOTE
    ============================================================ */
@@ -337,12 +231,11 @@
 .post-article__quote p {
   font-family: var(--font-heading);
   font-style: italic;
-  font-size: var(--text-fluid-body);
+  font-size: 120%;
   line-height: 1.6;
   color: var(--slate-700);
   margin: 0;
 }
-
 
 /* ============================================================
    POST FOOTER: TAGS + SHARE
@@ -426,7 +319,9 @@
   background: var(--white);
   display: inline-flex;
   align-items: center;
-  transition: border-color 0.15s, color 0.15s;
+  transition:
+    border-color 0.15s,
+    color 0.15s;
 }
 
 .post-article__tag:hover {
@@ -459,7 +354,6 @@
 .post-article__share-link:hover svg {
   color: var(--teal-primary);
 }
-
 
 /* ============================================================
    AUTHOR BIO
@@ -511,7 +405,6 @@
   color: var(--slate-500);
   margin-top: 4px;
 }
-
 
 /* ============================================================
    NEXT POST SUMMARY
