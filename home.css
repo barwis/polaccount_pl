@@ -10,7 +10,8 @@
 
 .hero-bg {
   position: relative;
-  height: 80vh;
+  margin-top: calc(-1 * var(--nav-height));
+  height: calc(80vh + var(--nav-height));
   background: var(--teal-primary) right center / cover no-repeat;
   isolation: isolate;
   overflow: hidden;
@@ -33,7 +34,7 @@
 
 @media (min-width: 768px) {
   .hero-bg {
-    height: 75vh;
+    height: calc(75vh + var(--nav-height));
   }
 
   .hero-bg__img {

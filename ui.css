@@ -805,17 +805,11 @@
   }
 
   .cards--third {
-    grid-template-columns: repeat(
-      auto-fit,
-      minmax(min(calc((100% - 2 * var(--cards-gap)) / 3), 100%), 1fr)
-    );
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .cards--quarter {
-    grid-template-columns: repeat(
-      auto-fit,
-      minmax(min(calc((100% - 3 * var(--cards-gap)) / 4), 100%), 1fr)
-    );
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
